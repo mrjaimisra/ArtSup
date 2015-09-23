@@ -25,7 +25,6 @@
   display: block;
   margin: 0;
   padding: 0;
-  background-image: url("street-art-portrait-1500x1000.jpg");
   width: 100%;
 }
 
@@ -44,7 +43,7 @@
 }
 
 .welcome-hover {
-  color: #333333;
+  color: rgba(51, 51, 51, 0.8);
   visibility: hidden;
 }
 
