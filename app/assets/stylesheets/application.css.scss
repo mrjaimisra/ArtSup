@@ -13,6 +13,146 @@
  *= require_tree .
  *= require_self
  */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Gochi+Hand);
+
+/* Body */
+
+/* Welcome Background */
+
+.welcome-background {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-image: url("street-art-portrait-1500x1000.jpg");
+  width: 100%;
+}
+
+/* Welcome Logo */
+
+.welcome-logo {
+  background-color: rgba(10, 170, 255, 0.8);
+  width: 28%;
+  font-family: 'Gochi Hand', cursive;
+  display: block;
+  margin-top: 18%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100%;
+  padding: 2%;
+}
+
+.welcome-hover {
+  color: #333333;
+  visibility: hidden;
+}
+
+.welcome-logo:hover {
+  .welcome-hover {
+    visibility: visible;
+  }
+}
+
+#welcome-art {
+  color: #FFF;
+  font-size: 100px;
+}
+
+#welcome-sup {
+  color: #0AAAFF;
+}
+
+/* Navbar */
+
+.header-nav {
+  background-color: #0AAAFF;
+  //border-radius: 14px;
+}
+
+.nav-item-border {
+  margin-top: 5px;
+  border-right: 1px solid #FFF;
+}
+
+.nav {
+  margin-top: -5px;
+  margin-bottom: -5px;
+  font-size: 1.4em;
+}
+
+.navbar-header > a {
+  font-size: 80px;
+  color: #FFF;
+  margin-top: -1px
+}
+
+#bs-example-navbar-collapse-1 > ul > li > a {
+  color: #FFF;
+  &:hover {
+    background: #333333;
+  }
+}
+
+#bs-example-navbar-collapse-1 > ul > li > a#avatar-holder {
+  color: #FFF;
+  &:hover {
+    background: rgba(255, 255, 255, 0);
+  }
+}
+
+#left-dropdown:hover {
+  .caret {
+    color: #FF0670;
+  }
+}
+
+.navbar-default .navbar-brand {
+  color: #FFF;
+  &:hover {
+    color: #333;
+  }
+}
+
+/* Navbar Logo */
+
+.navbar-logo {
+  font-family: 'Gochi Hand', cursive;
+  &:hover {
+    color: #333333;
+  }
+}
+
+/* Navbar Avatar */
+
+.navbar-avatar {
+  width: 40px;
+  padding: 0;
+  margin-top: -7px;
+  margin-bottom: -10px;
+  vertical-align: top;
+  border-radius: 50%;
+  border: 1.4px solid;
+}
+
+#avatar-holder:hover {
+  .caret {
+    color: #FF0670;
+  }
+  .navbar-avatar {
+    border: 1.4px solid #333333;
+  }
+}
+
+/* Navbar Search */
+
+.glyphicon-search {
+  color: #FFF;
+  &:hover {
+    color: #FF0670;
+  }
+}
+
+#nav-search-bar {
+  border-radius: 25px;
+}
