@@ -16,8 +16,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Gochi+Hand);
+@import url(https://fonts.googleapis.com/css?family=Hind+Siliguri:400,300);
 
 /* Body */
+
+body {
+  font-family: 'Hind Siliguri', sans-serif;
+}
+
+
+/* WELCOME PAGE */
+
+.welcome-page {
+  font-family: 'Gochi Hand', cursive;
+}
 
 /* Welcome Background */
 
@@ -33,9 +45,8 @@
 .welcome-logo {
   background-color: rgba(10, 170, 255, 0.8);
   width: 28%;
-  font-family: 'Gochi Hand', cursive;
   display: block;
-  margin-top: 18%;
+  margin-top: 8%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 100%;
@@ -62,7 +73,31 @@
   color: #0AAAFF;
 }
 
+/* Amazon Login Button */
+
+.login {
+  margin-top: 1%;
+}
+
+.login-text {
+  color: rgba(51, 51, 51, 0.8);
+  font-size: 2em;
+  margin-left: 545px;
+}
+
+#LoginWithAmazon {
+  border: 2px solid rgba(51, 51, 51, 0.8);
+  border-radius: 50%;
+  &:hover {
+    border: 2px solid #FF0670;
+  }
+}
+
 /* Navbar */
+
+.navbar-nav {
+  font-family: 'Hind Siliguri', sans-serif;
+}
 
 .header-nav {
   background-color: #0AAAFF;
@@ -113,6 +148,7 @@
   }
 }
 
+
 /* Navbar Logo */
 
 .navbar-logo {
@@ -147,6 +183,8 @@
 
 .glyphicon-search {
   color: #FFF;
+  margin-right: 10px;
+  margin-left: 4px;
   &:hover {
     color: #FF0670;
   }
@@ -154,4 +192,75 @@
 
 #nav-search-bar {
   border-radius: 25px;
+}
+
+/* Tabs */
+
+.g-tabs-large {
+  font-size: 24px;
+  line-height: 1.6;
+}
+.g-tabs {
+  border-bottom: 1px solid #0AAAFF;
+  list-style: none;
+  margin: 0;
+  font-size: 2em;
+  line-height: 2;
+}
+ul {
+  list-style: disc;
+}
+ul, ol {
+  padding: 0;
+  margin: 0 0 18px 25px;
+}
+
+.g-tabs:before, .g-tabs:after {
+  content: "";
+  display: table;
+}
+
+.g-tabs-item:first-child {
+  margin-left: 0;
+}
+.g-tabs-item {
+  float: left;
+  margin: 0 15px -1px;
+}
+
+a.g-tabs-link.active {
+  cursor: pointer;
+  color: #333;
+  border-bottom: 1px solid transparent;
+  display: block;
+}
+
+a, a:visited {
+  color: #38d;
+  text-decoration: none;
+}
+
+.g-tabs-link, .g-tabs-link:visited {
+  cursor: pointer;
+  color: #333;
+  border-bottom: 1px solid transparent;
+  display: block;
+}
+
+.g-tabs-link#selected {
+  border-color: #f50;
+  color: #f50;
+  cursor: default;
+}
+
+.g-tabs:after {
+  clear: both;
+}
+.g-tabs:before, .g-tabs:after {
+  content: "";
+  display: table;
+}
+
+.right {
+  float: right
 }

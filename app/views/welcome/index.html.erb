@@ -1,7 +1,18 @@
-<div class="welcome-logo">
-  <a href="<%= dashboard_path %>" type="button" class="btn" id="welcome-art">Art
-    <span class="welcome-hover">[ist]</span><br/>
-    Sup
-    <span class="welcome-hover">[porter]</span>
-  </a>
+<div class="welcome-page">
+  <div class="welcome-logo">
+    <a href="<%= "/auth/amazon" %>" type="button" class="btn" id="welcome-art">Art
+      <span class="welcome-hover">[ist]</span><br/>
+      Sup
+      <span class="welcome-hover">[porter]</span>
+    </a>
+
+  </div>
+  <div class="login">
+    <p class="login-text">Login with Amazon
+      <%= link_to image_tag("https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_32x32.png",
+                            id: "LoginWithAmazon",
+                            alt: "Login with Amazon"),
+                  "/auth/amazon" %>
+    </p>
+  </div>
 </div>
