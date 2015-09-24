@@ -1,2 +1,46 @@
 <%= render partial: "layouts/navbar" %>
 
+<ul class="g-tabs g-tabs-large streamExploreTabs__streamTab">
+  <li class="g-tabs-item">
+    <% if params[:controller] == "stream" %>
+      <h3><%= link_to "Stream", "#", class: "g-tabs-link", id: "selected" %></h3>
+    <% else %>
+      <h3><%= link_to "Stream", "#", class: "g-tabs-link" %></h3>
+    <% end %>
+  </li>
+  <li class="g-tabs-item">
+    <% if params[:controller] == "likes" %>
+      <h3><%= link_to "Likes", "#", class: "g-tabs-link", id: "selected" %> </h3>
+    <% else %>
+      <h3><%= link_to "Likes", "#", class: "g-tabs-link" %> </h3>
+    <% end %>
+  </li>
+  <li class="g-tabs-item">
+    <% if params[:controller] == "followings" %>
+      <h3><%= link_to "Following", "#", class: "g-tabs-link", id: "selected" %></h3>
+    <% else %>
+      <h3><%= link_to "Following", "#", class: "g-tabs-link" %></h3>
+    <% end %>
+  </li>
+  <li class="g-tabs-item">
+    <% if params[:controller] == "explore" %>
+      <h3><%= link_to "Explore", "#", class: "g-tabs-link", id: "selected" %></h3>
+    <% else %>
+      <h3><%= link_to "Explore", "#", class: "g-tabs-link" %></h3>
+    <% end %>
+  </li>
+  <li class="g-tabs-item right">
+    <% if params[:controller] == "uploads" %>
+      <h3><%= link_to "Uploads", "#", class: "g-tabs-link", id: "selected" %></h3>
+    <% else %>
+      <h3><%= link_to "Uploads", "#", class: "g-tabs-link" %></h3>
+    <% end %>
+  </li>
+</ul>
+
+<div class="container">
+  <div class="row">
+    <h1><%= current_user.name %></h1>
+    <h1><%= current_user.email %></h1> <br>
+  </div>
+</div>
