@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
       redirect_to dashboard_path
     else
       redirect_to root_path
-    #   make a flash here
     end
   end
 

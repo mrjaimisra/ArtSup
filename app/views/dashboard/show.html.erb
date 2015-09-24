@@ -1,6 +1,7 @@
 <%= render partial: "layouts/navbar" %>
 
-<ul class="g-tabs g-tabs-large streamExploreTabs__streamTab">
+<div class="container">
+<ul class="g-tabs g-tabs-large">
   <li class="g-tabs-item">
     <% if params[:controller] == "stream" %>
       <h3><%= link_to "Stream", "#", class: "g-tabs-link", id: "selected" %></h3>
@@ -37,10 +38,9 @@
     <% end %>
   </li>
 </ul>
-
-<div class="container">
   <div class="row">
     <h1><%= current_user.name %></h1>
     <h1><%= current_user.email %></h1> <br>
   </div>
 </div>
+
