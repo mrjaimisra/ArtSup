@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  get "/dashboard", to: "dashboard#show"
+  get "/dashboard", to: "dashboard#index"
   get "/auth/amazon/callback", to: "sessions#create"
 
+  get "/profile", to: "users#index", as: :profile
+  patch "/profile", to: "users#update"
+  get "/profile/edit", to: "users#edit"
+
+  resources :wish_lists
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

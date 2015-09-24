@@ -1,0 +1,13 @@
+<div class="story">
+  <h3>My Wish List</h3>
+
+  <% if current_user.wishlist_id %>
+    <div class="wish-list">
+      <%= @wish_list.each do |item| %>
+        <%= item.name %>
+        <%= link_to item.link, item.link %>
+        <%= link_to image_path(item.image_url), item.link %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
