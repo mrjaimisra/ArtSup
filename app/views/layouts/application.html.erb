@@ -8,7 +8,19 @@
 </head>
 <body>
 
+<% if current_user %>
+<%= render partial: "layouts/navbar" unless (controller == 'welcome') && (action == 'index') %>
+<% end %>
+
+<% if current_user %>
+<%= render partial: "layouts/dashboard_tabs" unless (controller == 'welcome') && (action == 'index') %>
+<% end %>
+
 <%= yield %>
+
+<% if current_user %>
+<%= render partial: "layouts/right_sidebar" unless (controller == 'welcome') && (action == 'index') %>
+<% end %>
 
 </body>
 </html>

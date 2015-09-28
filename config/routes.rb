@@ -1,20 +1,22 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  get "/dashboard", to: "dashboard#index"
+  get "/dashboard", to: "dashboard#show"
   get "/auth/amazon/callback", to: "sessions#create"
 
-  get "/profile", to: "users#index", as: :profile
+  get "/profile", to: "users#show", as: :profile
   patch "/profile", to: "users#update"
   get "/profile/edit", to: "users#edit"
 
-  resources :wish_lists
+  namespace :users, path: ":user" do
+    resources :wishlists, only: [:index, :show, :new, :create]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # root 'welcome#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

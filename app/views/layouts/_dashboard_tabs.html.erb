@@ -1,0 +1,43 @@
+<div class="container">
+<div class="row">
+
+<ul class="g-tabs g-tabs-large">
+  <li class="g-tabs-item">
+    <% if params[:controller] == "stream" %>
+      <h3><%= link_to "Story", "#", class: "g-tabs-link", id: "selected" %></h3>
+    <% else %>
+      <h3><%= link_to "Story", "#", class: "g-tabs-link" %></h3>
+    <% end %>
+  </li>
+  <li class="g-tabs-item">
+    <% if params[:controller] == "likes" %>
+      <h3><%= link_to "Collections", "#", class: "g-tabs-link", id: "selected" %> </h3>
+    <% else %>
+      <h3><%= link_to "Collections", "#", class: "g-tabs-link" %> </h3>
+    <% end %>
+  </li>
+  <li class="g-tabs-item">
+    <% if params[:controller] == "followings" %>
+      <h3><%= link_to "Wish List", "", class: "g-tabs-link", id: "selected" %></h3>
+    <% else %>
+      <h3><%= link_to "Wish List", "", class: "g-tabs-link" %></h3>
+    <% end %>
+  </li>
+  <li class="g-tabs-item">
+    <% if params[:controller] == "explore" %>
+      <h3><%= link_to "Supporters", "#", class: "g-tabs-link", id: "selected" %></h3>
+    <% else %>
+      <h3><%= link_to "Supporters", "#", class: "g-tabs-link" %></h3>
+    <% end %>
+  </li>
+  <li class="g-tabs-item right">
+    <% if params[:controller] == "uploads" %>
+      <h3><%= link_to "Profile", "#", class: "g-tabs-link", id: "selected" %></h3>
+    <% else %>
+      <h3><%= link_to "Profile", "#", class: "g-tabs-link" %></h3>
+    <% end %>
+  </li>
+</ul>
+
+</div>
+</div>

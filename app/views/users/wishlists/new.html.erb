@@ -1,0 +1,17 @@
+<div class="create-wishlist-form">
+  <%= form_tag users_wishlists_path(@user.id) do %>
+    ​
+    <!--<%#= render partial: "shared/errors", locals: { object: @item } %>-->
+    ​
+    <div class="form-group">
+      <%= label_tag :wishlist_url %>
+      <%= text_field_tag :wishlist_url, "", class: "form-control" %>
+    </div>
+    ​
+    <br>
+
+    <div class="form-group">
+      <%= submit_tag "Submit", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
