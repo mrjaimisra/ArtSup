@@ -4,15 +4,14 @@ require 'json'
 require 'nokogiri'
 
 module WishlistService
-  def self.import(amazon_id)
-    reveal      = 'reveal=unpurchased'
-    sort        = 'sort=date-added' # sorting options (date, title, price-high, price-low, updated, priority)
-    baseurl     = 'http://www.amazon.com'
-    page_number = 1 # realistically, there can be more than one
-    full_url    = "#{baseurl}/registry/wishlist/#{amazon_id}?#{reveal}&#{sort}&layout=standard&page=#{page_number}"
+  def self.fetch(amazon_id)
+    html = request amazon_id: amazon_id, base_url: 'http://www.amazon.com', page_number: 1
+    parse(html)
+  end
 
-
-    uri      = URI.parse full_url
+  def self.request(amazon_id:, base_url:, page_number:)
+    raw_uri  = "#{base_url}/registry/wishlist/#{amazon_id}?reveal=unpurchased&sort=date-added&layout=standard&page=#{page_number}"
+    uri      = URI.parse raw_uri
     http     = Net::HTTP.new uri.host, uri.port
     request  = Net::HTTP::Get.new(uri.request_uri)
     response = http.request(request)
@@ -21,8 +20,12 @@ module WishlistService
       binding.pry
     end
 
+    response.body
+  end
+
+  def self.parse(html)
     item_selector  = 'data-reg-item-inline-order'
-    document       = Nokogiri::HTML(response.body)
+    document       = Nokogiri::HTML(html)
     dom_items      = document.css("[#{item_selector}]")
     dom_items.map do |dom_item|
       data = JSON.parse dom_item[item_selector]
@@ -42,6 +45,7 @@ module WishlistService
     end
   end
 end
+
 
 __END__
 require 'open-uri'

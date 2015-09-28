@@ -9,7 +9,7 @@ end
 RSpec.describe 'WishlistService' do
   it 'parses my example wishlist' do
     VCR.use_cassette "artsup_wishlist" do
-      items = WishlistService.import('579KNEDD72QR')
+      items = WishlistService.fetch('579KNEDD72QR')
 
       expect(items[0]).to eq registry_item_id: "I25TX5TV56UHJF",
                              price:            "39.99",
