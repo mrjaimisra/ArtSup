@@ -1,7 +1,49 @@
-# $baseurl = 'http://www.amazon.com';
-# $content = phpQuery::newDocumentFile("$baseurl/registry/wishlist/$amazon_id?$reveal&$sort&layout=standard");
+require "uri"
+require "net/http"
+require 'json'
+require 'nokogiri'
+
+module WishlistService
+  def self.import(amazon_id)
+    reveal      = 'reveal=unpurchased'
+    sort        = 'sort=date-added' # sorting options (date, title, price-high, price-low, updated, priority)
+    baseurl     = 'http://www.amazon.com'
+    page_number = 1 # realistically, there can be more than one
+    full_url    = "#{baseurl}/registry/wishlist/#{amazon_id}?#{reveal}&#{sort}&layout=standard&page=#{page_number}"
 
 
+    uri      = URI.parse full_url
+    http     = Net::HTTP.new uri.host, uri.port
+    request  = Net::HTTP::Get.new(uri.request_uri)
+    response = http.request(request)
+
+    if response.code != '200'
+      binding.pry
+    end
+
+    item_selector  = 'data-reg-item-inline-order'
+    document       = Nokogiri::HTML(response.body)
+    dom_items      = document.css("[#{item_selector}]")
+    dom_items.map do |dom_item|
+      data = JSON.parse dom_item[item_selector]
+      { price:            data["price"], # <-- :D
+        asin:             data["asin"],
+        registry_id:      data['registryId'],
+        offer_id:         data["offerId"],
+        product_group_id: data["productGroupId"],
+        quantity:         data["quantity"],
+        registry_item_id: data["registryItemId"],
+        merchant_id:      data["merchantId"],
+        # sid:              data['sid'],
+        # registry_subtype: data["registrySubType"],
+        # registry_type:    data["registryType"],
+        # is_gift:          data["isGift"],
+      }
+    end
+  end
+end
+
+__END__
 require 'open-uri'
 
 class WishlistService
