@@ -1,13 +1,22 @@
+require 'open-uri'
+
 class WishListService
   attr_reader :connection
 
   def initialize
-    @connection = Hurley::Client.new("http://www.justinscarpetti.com/projects/amazon-wish-lister/api")
+    @connection = Hurley::Client.new("http://www.justinscarpetti.com/projects/amazon-wish-lister/api/")
   end
 
   def wish_list(id)
-    parse(connection.get("?id=#{id.to_i}"))
-    # sending get request to http://localhost:3000/v1/wish_list
+    params = { id: id }
+    parse(connection.get("", params)).map do |item|
+      page         = Nokogiri::HTML(open(item[:link]))
+      price        = page.search("#priceblock_ourprice").first.children.to_s
+      asin         = page.search("#ASIN").first.attributes["value"].value
+      item[:price] = price
+      item[:asin]  = asin
+      item
+    end
   end
 
   def create_wish_list(params)
@@ -21,6 +30,6 @@ class WishListService
   private
 
   def parse(response)
-    JSON.parse(response.body)
+    JSON.parse(response.body, symbolize_names: true)
   end
 end
