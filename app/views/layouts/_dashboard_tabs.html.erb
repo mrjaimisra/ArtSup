@@ -11,9 +11,9 @@
   </li>
   <li class="g-tabs-item">
     <% if params[:controller] == "collections" %>
-      <h3><%= link_to "Collections", "#", class: "g-tabs-link", id: "selected" %> </h3>
+      <h3><%= link_to "Collections", new_users_collection_path(current_user.id), class: "g-tabs-link", id: "selected" %> </h3>
     <% else %>
-      <h3><%= link_to "Collections", "#", class: "g-tabs-link" %> </h3>
+      <h3><%= link_to "Collections", new_users_collection_path(current_user.id), class: "g-tabs-link" %> </h3>
     <% end %>
   </li>
   <li class="g-tabs-item">
