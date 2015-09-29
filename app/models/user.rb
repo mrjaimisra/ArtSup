@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     user = User.find_or_create_by(provider: data.provider, uid: data.uid)
 
     user.email      = data.info.email
-    user.name   = data.info.name
+    user.name       = data.info.name
     user.image_url  = data.info.image
     user.token      = data.credentials.token
     user.save

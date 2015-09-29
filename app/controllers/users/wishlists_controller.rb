@@ -4,7 +4,7 @@ class Users::WishlistsController < Users::UsersController
 
   def new
     @user = User.find_by(id: params[:user])
-    @wishlist = Wishlist.new(params)
+    @wishlist = Wishlist.fetch(params[:id])
   end
 
   def create
