@@ -7,7 +7,7 @@ class Users::CollectionsController < Users::UsersController
   def create
     @user = User.find(params[:user])
     @collection = Collection.new(collection_params)
-    @collection.user_id = params[:user].to_i
+    @collection.user_id = current_user.id
     if @collection.save
       redirect_to dashboard_path
       flash.now[:notice] = "#{@collection.title} created"
