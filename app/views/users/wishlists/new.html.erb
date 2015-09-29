@@ -1,17 +1,27 @@
+<%= render partial: "layouts/navbar" %>
+
+<%= render partial: "layouts/dashboard_tabs" %>
+
+
+<div class="container">
+<div class="row">
+
+<h3>Add A Wishlist</h3>
+
 <div class="create-wishlist-form">
   <%= form_tag users_wishlists_path(@user.id) do %>
     ​
     <!--<%#= render partial: "shared/errors", locals: { object: @item } %>-->
     ​
-    <div class="form-group">
+    <div class="form-group col-md-9">
       <%= label_tag :wishlist_url %>
       <%= text_field_tag :wishlist_url, "", class: "form-control" %>
-    </div>
-    ​
-    <br>
-
-    <div class="form-group">
+    <br/>
       <%= submit_tag "Submit", class: "btn btn-primary" %>
     </div>
   <% end %>
+</div>
+
+<%= render partial: "layouts/right_sidebar" %>
+</div>
 </div>
