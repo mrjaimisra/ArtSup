@@ -17,14 +17,14 @@ module WishlistService
     response = http.request(request)
 
     if response.code != '200'
-      binding.pry
+      # binding.pry
     end
 
     response.body
   end
 
   def self.parse(html)
-    item_selector  = 'data-reg-item-inline-order'
+    item_selector  = "data-reg-item-inline-order"
     document       = Nokogiri::HTML(html)
     dom_items      = document.css("[#{item_selector}]")
     dom_items.map do |dom_item|
