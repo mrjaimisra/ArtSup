@@ -35,7 +35,6 @@ module WishlistService
         quantity:         data["quantity"],
         asin:             data["asin"],
         registry_id:      data["registryId"],
-        offer_id:         data["offerId"],
         product_group_id: data["productGroupId"],
         registry_item_id: data["registryItemId"],
         merchant_id:      data["merchantId"]

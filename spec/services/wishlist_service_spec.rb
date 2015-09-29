@@ -16,7 +16,6 @@ RSpec.describe 'WishlistService' do
                              quantity:         1,
                              asin:             "B00XAR64M8",
                              registry_id:      "579KNEDD72QR",
-                             offer_id:         "IzDLxvnf1pMnGzmsz2ltjP%2BjFnN2OmKbfd5C6cMgS4UlGDjnmHYtWQqXbyByQcMPJRIjI8qboEupcmKxkZ8ZGfBPXGJYqN7eG3ol57HfO%2FUy1nJYHbmQoGUXPqpPtnSt8m2ZD5%2F9GVvy3nmGLtNI7lkym4GgRkXt",
                              product_group_id: "gl_camera",
                              registry_item_id: "I25TX5TV56UHJF",
                              merchant_id:      "A3EXDMG8FUV8V2"
@@ -28,7 +27,6 @@ RSpec.describe 'WishlistService' do
                              quantity:         1,
                              asin:             "B000LQLDM2",
                              registry_id:      "579KNEDD72QR",
-                             offer_id:         "9XViaP2gcFQGo%2BoRk%2ByQl0mrFB1%2BxjPdvzAkmkA0K48faZaRmQndn8eOq1JNM3wZaSk5D5Gq71mxJzc%2BUavBC4jz1JOyiSmoqFVK3ttmFVc%3D",
                              product_group_id: "gl_musical_instruments",
                              registry_item_id: "I94YZ16MDP5UL",
                              merchant_id:      "ATVPDKIKX0DER"
