@@ -9,22 +9,22 @@ module WishlistService
     parse(html)
   end
 
-  def self.request(amazon_id:, base_url:, page_number:)
-    raw_uri  = "#{base_url}/registry/wishlist/#{amazon_id}?reveal=unpurchased&sort=date-added&layout=standard&page=#{page_number}"
+  def self.request(info = {amazon_id: "", base_url: "", page_number: ""})
+    raw_uri  = "#{info[:base_url]}/registry/wishlist/#{info[:amazon_id]}?reveal=unpurchased&sort=date-added&layout=standard&page=#{info[:page_number]}"
     uri      = URI.parse raw_uri
     http     = Net::HTTP.new uri.host, uri.port
     request  = Net::HTTP::Get.new(uri.request_uri)
     response = http.request(request)
 
     if response.code != '200'
-      binding.pry
+      # binding.pry
     end
 
     response.body
   end
 
   def self.parse(html)
-    item_selector  = 'data-reg-item-inline-order'
+    item_selector  = "data-reg-item-inline-order"
     document       = Nokogiri::HTML(html)
     dom_items      = document.css("[#{item_selector}]")
     dom_items.map do |dom_item|
