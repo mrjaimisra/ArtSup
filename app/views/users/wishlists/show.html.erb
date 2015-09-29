@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <% @wishlist.each do |item| %>
+      <div class="col-md-3">
+      <%= link_to item[:name], item[:link] %>
+        <%= image_tag item[:picture] %>
+      </div>
+    <% end %>
+  </div>
+</div>
