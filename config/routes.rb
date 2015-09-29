@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :users, path: ":user" do
     resources :wishlists, only: [:index, :show, :new, :create]
+    resources :collections, only: [:new, :create, :show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
