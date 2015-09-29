@@ -1,7 +1,7 @@
 require "uri"
 require "net/http"
-require 'json'
-require 'nokogiri'
+require "json"
+require "nokogiri"
 
 module WishlistService
   def self.fetch(amazon_id)
@@ -29,23 +29,20 @@ module WishlistService
     dom_items      = document.css("[#{item_selector}]")
     dom_items.map do |dom_item|
       data = JSON.parse dom_item[item_selector]
-      { price:            data["price"], # <-- :D
+      { title:            document.at_css("#itemImage_#{data['registryItemId']} a")['title'],
+        price:            data["price"], # <-- :D
+        image_url:        document.at_css("#itemImage_#{data['registryItemId']} a").at_css('img')['src'],
+        quantity:         data["quantity"],
         asin:             data["asin"],
-        registry_id:      data['registryId'],
+        registry_id:      data["registryId"],
         offer_id:         data["offerId"],
         product_group_id: data["productGroupId"],
-        quantity:         data["quantity"],
         registry_item_id: data["registryItemId"],
-        merchant_id:      data["merchantId"],
-        # sid:              data['sid'],
-        # registry_subtype: data["registrySubType"],
-        # registry_type:    data["registryType"],
-        # is_gift:          data["isGift"],
+        merchant_id:      data["merchantId"]
       }
     end
   end
 end
-
 
 __END__
 require 'open-uri'
