@@ -3,35 +3,35 @@
 
 <ul class="g-tabs g-tabs-large">
   <li class="g-tabs-item">
-    <% if params[:controller] == "stream" %>
+    <% if params[:controller] == "story" %>
       <h3><%= link_to "Story", "#", class: "g-tabs-link", id: "selected" %></h3>
     <% else %>
       <h3><%= link_to "Story", "#", class: "g-tabs-link" %></h3>
     <% end %>
   </li>
   <li class="g-tabs-item">
-    <% if params[:controller] == "likes" %>
+    <% if params[:controller] == "collections" %>
       <h3><%= link_to "Collections", "#", class: "g-tabs-link", id: "selected" %> </h3>
     <% else %>
       <h3><%= link_to "Collections", "#", class: "g-tabs-link" %> </h3>
     <% end %>
   </li>
   <li class="g-tabs-item">
-    <% if params[:controller] == "followings" %>
+    <% if params[:controller] == "wishlist" %>
       <h3><%= link_to "Wish List", "", class: "g-tabs-link", id: "selected" %></h3>
     <% else %>
       <h3><%= link_to "Wish List", "", class: "g-tabs-link" %></h3>
     <% end %>
   </li>
   <li class="g-tabs-item">
-    <% if params[:controller] == "explore" %>
+    <% if params[:controller] == "supporters" %>
       <h3><%= link_to "Supporters", "#", class: "g-tabs-link", id: "selected" %></h3>
     <% else %>
       <h3><%= link_to "Supporters", "#", class: "g-tabs-link" %></h3>
     <% end %>
   </li>
   <li class="g-tabs-item right">
-    <% if params[:controller] == "uploads" %>
+    <% if params[:controller] == "users" %>
       <h3><%= link_to "Profile", "#", class: "g-tabs-link", id: "selected" %></h3>
     <% else %>
       <h3><%= link_to "Profile", "#", class: "g-tabs-link" %></h3>

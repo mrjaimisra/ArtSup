@@ -1,5 +1,6 @@
 <%= render partial: "layouts/navbar" %>
 
+
 <div class="container">
   <div class="row profile">
     <%= image_tag current_user.image_url, class: "img-circle pull-left", alt: current_user.name %>
@@ -11,4 +12,6 @@
   <div class="wish-list">
     current_user.
   </div>
+
+<%= render partial: "layouts/right_sidebar" %>
 </div>

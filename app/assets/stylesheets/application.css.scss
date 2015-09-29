@@ -268,7 +268,8 @@ a, a:visited {
 /* Right Sidebar */
 
 .l-fluid-fixed .l-sidebar-right {
-  position: absolute;
+  display: inline-block;
+  position: relative;
   top: 30px;
   bottom: 0;
   right: 0;
@@ -300,12 +301,7 @@ a, a:visited {
   content: "";
   display: table;
 }
-.sidebarModule {
-  margin-bottom: 20px;
-}
-.g-all-transitions-200-linear {
-  transition: all 200ms linear;
-}
+
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block;
 }
@@ -341,8 +337,85 @@ a, a:visited {
   color: #0AAAFF;
 }
 
+<<<<<<< HEAD
+/* Wish List Items */
+
+.wish-list-items {
+  margin: 1%;
+  border: solid 2px #0AAAFF;
+  margin-bottom: 14px;
+  height: 280px;
+  width: 270px;
+}
+
+.wish-list-items-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 3%;
+}
+
+.thumbnail {
+  display: table;
+  width: 200px;
+  margin: 2%;
+}
+
+/* Dashboard Tabs */
+
+/* category tabs */
+
+.g-tabs:before, .g-tabs:after {
+  content: "";
+  display: table;
+}
+
+.g-tabs-item:first-child {
+  margin-left: 0;
+}
+.g-tabs-item {
+  float: left;
+  margin: 0 15px -1px;
+}
+
+a.g-tabs-link.active {
+  cursor: pointer;
+  color: #333;
+  display: block;
+}
+
+a, a:visited {
+  color: #38d;
+  text-decoration: none;
+}
+
+.g-tabs-link, .g-tabs-link:visited {
+  cursor: pointer;
+  color: #333;
+  border-bottom: 1px solid transparent;
+  display: block;
+}
+
+.g-tabs-link#selected {
+  border-color: #0aaaff;
+  color: #0aaaff;
+  cursor: default;
+}
+
+.g-tabs:after {
+  clear: both;
+}
+.g-tabs:before, .g-tabs:after {
+  content: "";
+  display: table;
+}
+
+.right {
+  float: right
+}
+
 /* Forms */
 
 .form-group {
-  width: 40%;
+  width: 50%;
 }

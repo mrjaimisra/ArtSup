@@ -13,7 +13,7 @@ class Wishlist < OpenStruct
   end
 
   def self.fetch(wishlist_id)
-    WishlistService.new.wish_list(wishlist_id)
+    WishlistService.fetch(wishlist_id)
   end
 
   def self.update(id, params)

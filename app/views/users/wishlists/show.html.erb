@@ -1,10 +1,39 @@
+<%= render partial: "layouts/navbar" %>
+
+<%= render partial: "layouts/dashboard_tabs" %>
+
 <div class="container">
+
+  <h2><%= @user.name %>'s Wishlist:</h2>
+
   <div class="row">
     <% @wishlist.each do |item| %>
-      <div class="col-md-3">
-      <%= link_to item[:name], item[:link] %>
-        <%= image_tag item[:picture] %>
+      <div class="col-md-3 wish-list-items">
+        <div class="thumbnail">
+          <%= link_to (image_tag item[:image_url]), item[:link] %> <br>
+        </div>
+        <div class="wish-list-items-content">
+          <%= link_to item[:title].first(34), item[:link] %> <br>
+          Price: $<%= item[:price] %> <br>
+          Quantity:<%= item[:quantity] %>
+          <span class="right">
+            <%= link_to "Add to Cart", item[:link], class: "btn btn-default" %>
+          </span> <br>
+        </div>
       </div>
     <% end %>
   </div>
+
+  <%= render partial: "layouts/right_sidebar" %>
+
 </div>
+
+<!--:title=>"STUNTMAN G - Shoulder, Chest and Hip Mount for GoPro Cameras",-->
+<!--:price=>"39.99",-->
+<!--:image_url=>"http://ecx.images-amazon.com/images/I/41IO-4Pbq%2BL._SL500_SL135_.jpg",-->
+<!--:quantity=>1,-->
+<!--:asin=>"B00XAR64M8",-->
+<!--:registry_id=>"579KNEDD72QR",-->
+<!--:product_group_id=>"gl_camera",-->
+<!--:registry_item_id=>"I25TX5TV56UHJF",-->
+<!--:merchant_id=>"A3EXDMG8FUV8V2"-->
