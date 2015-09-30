@@ -2,35 +2,43 @@
 
 <%= render partial: "layouts/dashboard_tabs" %>
 
-
 <div class="container">
 
   <div class="row">
-    <div class="row right">
-      <h4><%= current_user.name %></h4>
-      <h4><%= current_user.email %></h4> <br>
+
+    <% if current_collection %>
+      <%= render partial: "layouts/current_collection" %>
+    <% else %>
+      <div class="collection-info">
+        <h2>Current Collection:
+          (<%= link_to current_user.collections.count, users_collections_path(current_user) %>
+          total)
+        </h2>
+      </div>
+
+      <div class="current-collection">
+        <div class="dashboard-content">
+          <h4>
+            <%= link_to "Add A Collection", new_users_collection_path(current_user) %>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="col-md-9">
+      <div class="dashboard-content story-dashboard ">
+        <h2>Story</h2>
+        <h4><%= link_to "Edit Information", "#" %></h4>
+      </div>
+
+      <div class="dashboard-content">
+        <h2>Supporters</h2>
+        <h4><%= link_to "Manage Supporters", "#" %></h4>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <%= render partial: "layouts/right_sidebar" %>
     </div>
   </div>
-
-  <div class="row">
-    <h2>Story</h2>
-    <%#= @user.story %>
-  </div>
-
-  <div class="row">
-    <h2>Collection</h2>
-    <%#= @items.each do |item| %>
-    <%#= link_to (image_tag item.image_url) item_path %>
-  </div>
-
-  <div class="row">
-    <h2>Supporters</h2>
-  </div>
-
-  <div class="row">
-    <h2>Story</h2>
-  </div>
-
-<%= render partial: "layouts/right_sidebar" %>
 </div>
-

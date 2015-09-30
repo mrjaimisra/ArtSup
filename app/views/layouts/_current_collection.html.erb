@@ -1,0 +1,26 @@
+<div class="current-collection-partial">
+  <div class="collection-info">
+    <h2>Current Collection:
+      (<%= link_to current_user.collections.count, users_collections_path(current_user) %>
+      total)
+    </h2>
+  </div>
+
+  <div class="current-collection">
+    <div class="dashboard-content">
+
+      <div class="row">
+        <div class="col-md-3 collection-title">
+          <%= current_collection.title %>
+        </div>
+      </div>
+      <p><%= current_collection.description %></p>
+      <% current_collection.pieces.map do |piece| %>
+        <%= image_tag piece.image.url(:medium), class: "img-responsive current-collection-images" %>
+      <% end %>
+      <h4>
+        <%= link_to "Add Piece to Collection", new_users_collection_piece_path(current_user, current_collection) %>
+      </h4>
+    </div>
+  </div>
+</div>

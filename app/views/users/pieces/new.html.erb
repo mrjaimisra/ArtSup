@@ -6,18 +6,18 @@
 <div class="container">
   <div class="row">
 
-    <h3>Create A New Collection</h3>
+    <h3>Add A Piece to <%= @collection.title %></h3>
 
     <div class="">
-      <%= form_for [@user, @collection],
+      <%= form_for [@collection, @piece],
                    url: {action: "create"},
                    html: { multipart: true } do |f| %>
         ​
         <!--<%#= render partial: "shared/errors", locals: { object: @item } %>-->
         ​
         <div class="form-group col-md-9">
-          <%= f.label :title %>
-          <%= f.text_field :title, class: "form-control" %>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
           <br/>
           <%= f.label :description %>
           <%= f.text_area :description, class: "form-control" %>
@@ -27,7 +27,7 @@
           <br/>
           <%= f.submit "Create", class: "btn btn-primary" %>
         </div>
-    <% end %>
+      <% end %>
     </div>
 
     <%= render partial: "layouts/right_sidebar" %>

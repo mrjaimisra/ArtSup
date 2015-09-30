@@ -1,43 +1,49 @@
 <div class="container">
-<div class="row">
+  <div class="row dashboard-top-banner">
 
-<ul class="g-tabs g-tabs-large">
-  <li class="g-tabs-item">
-    <% if params[:controller] == "story" %>
-      <h3><%= link_to "Story", "#", class: "g-tabs-link", id: "selected" %></h3>
-    <% else %>
-      <h3><%= link_to "Story", "#", class: "g-tabs-link" %></h3>
-    <% end %>
-  </li>
-  <li class="g-tabs-item">
-    <% if params[:controller] == "collections" %>
-      <h3><%= link_to "Collections", new_users_collection_path(current_user.id), class: "g-tabs-link", id: "selected" %> </h3>
-    <% else %>
-      <h3><%= link_to "Collections", new_users_collection_path(current_user.id), class: "g-tabs-link" %> </h3>
-    <% end %>
-  </li>
-  <li class="g-tabs-item">
-    <% if params[:controller] == "wishlist" %>
-      <h3><%= link_to "Wish List", "", class: "g-tabs-link", id: "selected" %></h3>
-    <% else %>
-      <h3><%= link_to "Wish List", "", class: "g-tabs-link" %></h3>
-    <% end %>
-  </li>
-  <li class="g-tabs-item">
-    <% if params[:controller] == "supporters" %>
-      <h3><%= link_to "Supporters", "#", class: "g-tabs-link", id: "selected" %></h3>
-    <% else %>
-      <h3><%= link_to "Supporters", "#", class: "g-tabs-link" %></h3>
-    <% end %>
-  </li>
-  <li class="g-tabs-item right">
-    <% if params[:controller] == "users" %>
-      <h3><%= link_to "Profile", "#", class: "g-tabs-link", id: "selected" %></h3>
-    <% else %>
-      <h3><%= link_to "Profile", "#", class: "g-tabs-link" %></h3>
-    <% end %>
-  </li>
-</ul>
+    <div class="dashboard-top-banner">
+      <div class="col-md-9"><h1>Dashboard</h1></div>
+      <div class="col-md-3">
+        <h4><%= current_user.name %>
+          <br/>
+          <%= current_user.email %></h4>
+        <h4><%= link_to "Profile", "#", class: "dashboard-top-banner" %> </h4>
+      </div>
+    </div>
 
-</div>
+    <div class="container">
+
+      <ul class="g-tabs g-tabs-large">
+        <li class="g-tabs-item">
+          <% if params[:controller] == "story" %>
+            <h3><%= link_to "Story", "#", class: "g-tabs-link", id: "selected" %></h3>
+          <% else %>
+            <h3><%= link_to "Story", "#", class: "g-tabs-link" %></h3>
+          <% end %>
+        </li>
+        <li class="g-tabs-item">
+          <% if params[:controller] == "collections" %>
+            <h3><%= link_to "Collections", new_users_collection_path(current_user.id), class: "g-tabs-link", id: "selected" %> </h3>
+          <% else %>
+            <h3><%= link_to "Collections", new_users_collection_path(current_user.id), class: "g-tabs-link" %> </h3>
+          <% end %>
+        </li>
+        <li class="g-tabs-item">
+          <% if params[:controller] == "wishlist" %>
+            <h3><%= link_to "Wish List", "", class: "g-tabs-link", id: "selected" %></h3>
+          <% else %>
+            <h3><%= link_to "Wish List", "", class: "g-tabs-link" %></h3>
+          <% end %>
+        </li>
+        <li class="g-tabs-item">
+          <% if params[:controller] == "supporters" %>
+            <h3><%= link_to "Supporters", "#", class: "g-tabs-link", id: "selected" %></h3>
+          <% else %>
+            <h3><%= link_to "Supporters", "#", class: "g-tabs-link" %></h3>
+          <% end %>
+        </li>
+      </ul>
+
+    </div>
+  </div>
 </div>

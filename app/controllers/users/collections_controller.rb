@@ -23,6 +23,6 @@ class Users::CollectionsController < Users::UsersController
   private
 
     def collection_params
-      params.require(:collection).permit(:title, :description)
+      params.require(:collection).permit(:title, :description, :image)
     end
 end

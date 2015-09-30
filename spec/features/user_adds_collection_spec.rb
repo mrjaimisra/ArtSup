@@ -15,6 +15,8 @@ RSpec.feature "User creates a new collection", type: :feature do
 
     expect(current_path).to eq(dashboard_path)
 
+    expect(page).to have_link("Add A Collection")
+
     within(".g-tabs") do
       click_on "Collections"
     end
@@ -26,5 +28,7 @@ RSpec.feature "User creates a new collection", type: :feature do
     click_on "Create"
 
     expect(current_path).to eq(dashboard_path)
+    expect(page).to have_content("Film Project")
+    expect(page).to have_content("GoPro trip to the desert to film sand boarding")
   end
 end
