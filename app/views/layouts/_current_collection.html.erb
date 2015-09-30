@@ -17,7 +17,7 @@
       <%= image_tag current_collection.image.url(:medium), class: "img-responsive" %>
       <p><%= current_collection.description %></p>
       <% current_collection.pieces.map do |piece| %>
-        <%= image_tag piece.image.url(:thumbnail), class: "img-responsive current-collection-images" %>
+        <%= image_tag piece.image.url(:thumb), class: "img-responsive current-collection-images" %>
       <% end %>
       <h4>
         <%= link_to "Add Piece to Collection", new_users_collection_piece_path(current_user, current_collection) %>
