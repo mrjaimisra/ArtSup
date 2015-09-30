@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  get "/dashboard", to: "dashboard#show"
   get "/auth/amazon/callback", to: "sessions#create"
 
   get "/profile", to: "users#show", as: :profile
   patch "/profile", to: "users#update"
   get "/profile/edit", to: "users#edit"
+  get "/dashboard", to: "dashboard#show"
 
   namespace :users, path: ":user" do
     resources :wishlists, only: [:index, :show, :new, :create]
-    resources :collections, only: [:new, :create, :show]
+    resources :collections, only: [:new, :create, :show] do
+      resources :pieces, only: [:new, :create]
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
