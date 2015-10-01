@@ -1,6 +1,7 @@
 class Users::CollectionsController < Users::UsersController
   def index
     @collections = Collection.where(user_id: current_user.id)
+    @user = User.find_by(id: params[:user])
   end
 
   def new
@@ -20,9 +21,32 @@ class Users::CollectionsController < Users::UsersController
     end
   end
 
+  def edit
+    @user = User.find_by(id: params[:user])
+    @collection = Collection.find_by(id: params[:id])
+  end
+
+  def update
+    @user = User.find_by(id: params[:user])
+    @collection = Collection.find_by(id: params[:id])
+    @collection.update_attributes(collection_params)
+    if @collection.save
+      redirect_to users_collections_path(user: params[:user])
+    else
+      render :edit
+    end
+  end
+
   def show
     @collection = Collection.find_by(id: params[:id])
     @pieces = @collection.pieces
+  end
+
+  def destroy
+    @collection = Collection.find_by(id: params[:id])
+    @collection.destroy
+
+    redirect_to users_collections_path(user: params[:user])
   end
 
   private

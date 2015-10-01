@@ -1,0 +1,38 @@
+<%= render partial: "layouts/navbar" %>
+
+<%= render partial: "layouts/dashboard_tabs" %>
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4">
+    <h3>Edit a Piece in <%= @collection.title %></h3>
+    </div>
+    <div class="col-md-8">
+    <%= button_to "Remove", { action: "destroy", id: @collection.id },
+                                method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-info butt" %>
+                                </div>
+    </div>
+
+    <div class="">
+      <%= form_for [@collection, @piece],
+                   url: {action: "update"},
+                   html: { multipart: true } do |f| %>
+        ​
+        <!--<%#= render partial: "shared/errors", locals: { object: @item } %>-->
+        ​
+        <div class="form-group col-md-9">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+          <br/>
+          <%= f.label :image %>
+          <%= f.file_field :image %>
+          <br/>
+          <%= f.submit "Update", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+
+    <%= render partial: "layouts/right_sidebar" %>
+  </div>
+</div>

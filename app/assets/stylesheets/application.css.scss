@@ -149,7 +149,6 @@ body {
   }
 }
 
-
 /* Navbar Logo */
 
 .navbar-logo {
@@ -311,8 +310,7 @@ a, a:visited {
   padding-bottom: 7px;
   border-bottom: 1px solid #f2f2f2;
   margin-bottom: 4px;
-  border-top: 1px solid #f2f2f2;
-  padding-top: 4px;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 a, a:visited {
@@ -359,6 +357,7 @@ a, a:visited {
   max-height: 120px;
   margin: 2%;
   text-align: center;
+  font-size: 12px;
 }
 
 .thumbnail-image {
@@ -388,12 +387,6 @@ a.g-tabs-link.active {
   display: block;
 }
 
-
-a, a:visited {
-  color: #FF0670;
-  text-decoration: none;
-}
-
 .g-tabs-link, .g-tabs-link:visited {
   cursor: pointer;
   color: #FFF;
@@ -402,8 +395,7 @@ a, a:visited {
 }
 
 .g-tabs-link#selected {
-  border-color: #0aaaff;
-  color: #0aaaff;
+  color: #FFF;
   cursor: default;
 }
 
@@ -420,7 +412,6 @@ a, a:visited {
 }
 
 .dash-tabs {
-  text-decoration: dotted;
 }
 
 /* Forms */
@@ -480,6 +471,50 @@ a, a:visited {
 }
 
 .collections-show {
-  max-width: 200px;
+  border: 1px solid #333333;
+}
 
+.collection-images {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+.piece-title {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+.collection-header {
+
+}
+
+.butt {
+  margin-top: 2%;
+  }
+
+.wish-list-dash {
+  height: 245px;
+}
+
+.wishlist-images-dash {
+  height: 40px;
+  width: 40px;
+}
+
+.collect-descrip {
+  font-size: 18px;
+}
+
+.users-index {
+  background: #0AAAFF;
+  color: #FFF;
+}
+
+.user-stuff {
+  font-size: 18px;
+  text-align: center;
 }

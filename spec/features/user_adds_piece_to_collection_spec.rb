@@ -21,7 +21,6 @@ RSpec.feature "User adds a piece to the collection", type: :feature do
     click_link "Add A Collection"
 
     fill_in "Title", with: "Film Project"
-    fill_in "Description", with: "GoPro trip to the desert to film sand boarding"
     click_on "Create"
 
     expect(current_path).to eq(dashboard_path)
@@ -31,14 +30,8 @@ RSpec.feature "User adds a piece to the collection", type: :feature do
     expect(current_path).to eq(new_users_collection_piece_path(user: 2, collection_id: 2))
 
     fill_in "Name", with: "Short Film"
-    fill_in "Description", with: "A little footage"
-    # attach_file "Image", "./app/assets/images/street-art-portrait-1500x1000.jpg"
     click_on "Create"
 
     expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content("Short Film")
-    expect(page).to_not have_content("A little footage")
-
-    # expect(page).to have_css(".current-collection-images")
   end
 end
