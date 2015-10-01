@@ -13,7 +13,7 @@
     <div class="collections-list">
       <div class="row">
         <div class="col-md-3">
-          <h3><%= collection.title %> </h3>
+          <h3><%= link_to collection.title, users_collection_path(params[:user], collection) %> </h3>
         </div>
 
         <div class="col-md-6">
@@ -21,7 +21,7 @@
         </div>
 
         <div class="col-md-3">
-          <h3>Description:</h3>
+          <h3>Support me by:</h3>
         </div>
       </div>
 
@@ -32,6 +32,9 @@
           <% if collection.user_id == params[:user].to_i %>
             <h4>
               <%= link_to "Add Piece to Collection", new_users_collection_piece_path(current_user, collection) %>
+              <br/>
+              <br/>
+              <%= link_to "Edit Collection", edit_users_collection_path(current_user, collection.id) %>
             </h4>
           <% end %>
 
@@ -41,8 +44,8 @@
         <div class="col-md-6 three-content">
           <% collection.pieces.limit(8).map do |piece| %>
             <div class="col-md-3 thumbnail">
+              <%= piece.name %>
               <%= image_tag piece.image.url(:thumb), class: "img-responsive current-collection-images thumbnail-image" %> <br/>
-              <%= piece.name %> <br/>
             </div>
           <% end %>
         </div>

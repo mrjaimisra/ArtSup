@@ -11,28 +11,30 @@
           <div class="col-md-9"><h1>Pieces</h1>
         <% elsif params[:controller] == "users/story" %>
           <div class="col-md-9"><h1>Dashboard</h1>
+        <% elsif params[:controller] == "users/wishlists" %>
+          <div class="col-md-9"><h1>Wishlist</h1>
         <% end %>
 
         <ul class="g-tabs g-tabs-large">
           <li class="g-tabs-item">
             <% if params[:controller] == "story" %>
-              <h3><%= link_to "Story", "#", class: "g-tabs-link", id: "selected" %></h3>
+              <h3><%= link_to "Dashboard", dashboard_path, class: "g-tabs-link", id: "selected" %></h3>
             <% else %>
-              <h3><%= link_to "Story", "#", class: "g-tabs-link" %></h3>
+              <h3><%= link_to "Dashboard", dashboard_path, class: "g-tabs-link" %></h3>
             <% end %>
           </li>
           <li class="g-tabs-item">
             <% if params[:controller] == "collections" %>
-              <h3><%= link_to "Collections", users_collections_path(current_user.id), class: "g-tabs-link", id: "selected" %> </h3>
+              <h3><%= link_to "Collections", users_collections_path(user: current_user.id), class: "g-tabs-link", id: "selected" %> </h3>
             <% else %>
-              <h3><%= link_to "Collections", users_collections_path(current_user.id), class: "g-tabs-link" %> </h3>
+              <h3><%= link_to "Collections", users_collections_path(user: current_user.id), class: "g-tabs-link" %> </h3>
             <% end %>
           </li>
           <li class="g-tabs-item">
-            <% if params[:controller] == "wishlist" %>
-              <h3><%= link_to "Wish List", "", class: "g-tabs-link", id: "selected" %></h3>
+            <% if current_user.wishlist_id %>
+              <h3><%= link_to "Wish List", users_wishlist_path(id: @user.wishlist_id, user: current_user.id), class: "g-tabs-link", id: "selected" %></h3>
             <% else %>
-              <h3><%= link_to "Wish List", "", class: "g-tabs-link" %></h3>
+              <h3><%= link_to "Wish List", new_users_wishlist_path(@user), class: "g-tabs-link" %></h3>
             <% end %>
           </li>
           <li class="g-tabs-item">
@@ -49,11 +51,8 @@
           <h4><%= current_user.name %>
             <br/>
             <%= current_user.email %></h4>
-             <span class="">Following:
-            </span> <%= 10 %> <br/>
-            <span class=" ">Followers:
-            </span> <%= 10 %>
-          <h4><%= link_to "Profile", "#", class: "dashboard-top-banner" %> </h4>
+
+          <h4><%= link_to "Profile", profile_path, class: "dashboard-top-banner" %> </h4>
         </div>
         </div>
 

@@ -1,16 +1,29 @@
 <div class="l-sidebar-right">
   <div class="streamSidebar sc-clearfix">
     <h2 class="sidebar-header sc-clearfix sc-link-light">
-            <span class="stats">Supporters:</span> <%= 10 %> <br/>
-    </h2>
 
-    <h2 class="sidebar-header">
-        <span class="stats">Supporting:</span><%= 10 %> <br/>
-    </h2>
-            <span class="stats">Following:
-            </span> <%= 10 %> <br/>
-            <span class="stats">Followers:
-            </span> <%= 10 %>
+      <% if @user.wishlist_id %>
+        <div class="row">
+          <% WishlistService.fetch(@user.wishlist_id).each do |item| %>
+            <div class="col-md-6 wish-list-dash">
+              <div class="thumbnail">
+                <%= link_to (image_tag item[:image_url]), item[:link], class: "wishlist-images-dash" %> <br>
+              <div class="">
+                <%= link_to item[:title].first(14), item[:link] %> <br>
+                Price: $<%= item[:price] %> <br>
+                Quantity:<%= item[:quantity] %>
+              </div>
+                <span class="right">
+            <%= link_to "Add to Cart", item[:link], class: "btn btn-default" %>
+          </span> <br>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      <% else %>
+        <h2>Click here to import your Wishlist</h2>
+      <% end %>
   </div>
 </div>
 

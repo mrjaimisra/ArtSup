@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   get "/profile", to: "users#show", as: :profile
   patch "/profile", to: "users#update"
   get "/profile/edit", to: "users#edit"
+  get "/profile/show", to: "users#show"
   get "/dashboard", to: "dashboard#show"
 
+  resources :users, only: [:index]
+
   namespace :users, path: ":user" do
-    resources :wishlists, only: [:index, :show, :new, :create]
+    resources :stories, only: [:show]
+    resources :wishlists
     resources :collections do
       resources :pieces
     end

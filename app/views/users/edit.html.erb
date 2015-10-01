@@ -1,28 +1,27 @@
 <%= render partial: "layouts/navbar" %>
 
-<%= render partial: "layouts/dashboard_tabs" %>
 
 
 <div class="container">
-  <div class="row">
+<div class="row">
+<div class="">
 
-    <h3>Add A Piece to <%= @collection.title %></h3>
-
-    <div class="">
-      <%= form_for [@collection, @piece],
-                   url: {action: "create"},
+      <%= form_for current_user, url: profile_path,
                    html: { multipart: true } do |f| %>
         ​
         <div class="form-group col-md-9">
           <%= f.label :name %>
           <%= f.text_field :name, class: "form-control" %>
           <br/>
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control" %>
+          <br/>
           <%= f.label :image %>
           <%= f.file_field :image %>
           <br/>
-          <%= f.submit "Create", class: "btn btn-primary" %>
+          <%= f.submit "Edit", class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
-  </div>
-</div>
+    </div>
+    </div>

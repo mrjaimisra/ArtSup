@@ -5,6 +5,8 @@
 <div class="container">
 
   <h2><%= @user.name %>'s Wishlist:</h2>
+  <%= button_to "Delete Wishlist", { action: "destroy", id: @user.id },
+                method: :delete, data: { confirm: "Are you sure?" } %>
 
   <div class="row">
     <% @wishlist.each do |item| %>
@@ -23,9 +25,6 @@
       </div>
     <% end %>
   </div>
-
-  <%= render partial: "layouts/right_sidebar" %>
-
 </div>
 
 <!--:title=>"STUNTMAN G - Shoulder, Chest and Hip Mount for GoPro Cameras",-->

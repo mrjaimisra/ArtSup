@@ -6,31 +6,37 @@
 <div class="container">
   <div class="row">
 
+    <div class="collection-header">
+      <div class="col-md-12">
+        <h1><%= @collection.title %></h1>
 
-    <h2><%= @collection.title %></h2>
+        <h3>Support me by: <span class="collect-descrip"><%= @collection.description %></span></h3>
 
-    <h3> <%= @collection.description %></h3>
+        <h4 class="">
+          <%= link_to "Add Piece to Collection", new_users_collection_piece_path(current_user, current_collection) %>
+        </h4>
+      </div>
+    </div>
 
   </div>
 
   <div class="row">
     <% @pieces.map do |piece| %>
-      <div class="col-md-3">
-        <div class="collections-show">
-          <%= image_tag piece.image.url(:medium) %> <br>
-          <%= piece.name %> <br/>
-          <%= piece.description %> <br/>
-
+      <div class="col-md-3 collections-show">
+        <div class="piece-title">
+          <b><%= piece.name[0..14] %></b> <br/>
+          <%= image_tag piece.image.url(:medium), class: "collection-images" %>
           <% if current_user.id == params[:user].to_i %>
-            <%= link_to "Edit", "#" %> <br/>
-            <%= link_to "Remove", "#" %> <br/>
+            <div class="">
+              <%= link_to "Edit", edit_users_collection_piece_path(collection_id: @collection.id, id: params[:id]), class: "btn btn-default" %>
             </div>
           <% else %>
             <%= link_to "Add To Cart", class: "btn btn-default" %>
-            </div>
           <% end %>
-
-          </div>
+        </div>
+        <div>
+        </div>
+      </div>
     <% end %>
-    </div>
+  </div>
 </div>
