@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   namespace :users, path: ":user" do
     resources :wishlists, only: [:index, :show, :new, :create]
-    resources :collections, only: [:new, :create, :show] do
-      resources :pieces, only: [:new, :create]
+    resources :collections do
+      resources :pieces
     end
   end
 

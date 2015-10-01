@@ -116,9 +116,10 @@ body {
 }
 
 .navbar-header > a {
-  font-size: 80px;
+  font-size: 60px;
   color: #FFF;
-  margin-top: -1px
+  margin-top: -1px;
+  padding-top: 0.3em;
 }
 
 #bs-example-navbar-collapse-1 > ul > li > a {
@@ -448,4 +449,11 @@ a, a:visited {
 
 .story-dashboard {
 
+}
+
+/* Collections Index */
+
+.collections-list {
+  border-bottom: 1px solid #0AAAFF;
+  padding-top: 2%;
 }
