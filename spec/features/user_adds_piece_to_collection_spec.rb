@@ -16,7 +16,9 @@ RSpec.feature "User adds a piece to the collection", type: :feature do
       click_on "Collections"
     end
 
-    expect(current_path).to eq(new_users_collection_path(2))
+    expect(current_path).to eq(users_collections_path(2))
+
+    click_link "Add A Collection"
 
     fill_in "Title", with: "Film Project"
     fill_in "Description", with: "GoPro trip to the desert to film sand boarding"

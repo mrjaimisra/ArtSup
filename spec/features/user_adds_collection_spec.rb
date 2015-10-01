@@ -21,6 +21,10 @@ RSpec.feature "User creates a new collection", type: :feature do
       click_on "Collections"
     end
 
+    expect(current_path).to eq(users_collections_path(1))
+
+    click_link "Add A Collection"
+
     expect(current_path).to eq(new_users_collection_path(1))
 
     fill_in "Title", with: "Film Project"

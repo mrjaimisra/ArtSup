@@ -1,4 +1,8 @@
 class Users::CollectionsController < Users::UsersController
+  def index
+    @collections = Collection.where(user_id: current_user.id)
+  end
+
   def new
     @collection = Collection.new
     @user = User.find(params[:user])
@@ -17,7 +21,8 @@ class Users::CollectionsController < Users::UsersController
   end
 
   def show
-    @collection = Collection.find(params[:id])
+    @collection = Collection.find_by(id: params[:id])
+    @pieces = @collection.pieces
   end
 
   private

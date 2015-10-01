@@ -10,28 +10,40 @@
     <div class="dashboard-content">
 
       <div class="row">
-        <div class="col-md-3 collection-title">
-          <%= current_collection.title %>
+        <div class="col-md-3">
+          <h3><%= current_collection.title %> </h3>
+        </div>
+
+        <div class="col-md-6">
+          <h3>Pieces: <%= link_to current_collection.pieces.count, users_collection_path(current_user, current_collection) %></h3>
+        </div>
+
+        <div class="col-md-3">
+          <h3>Description:</h3>
         </div>
       </div>
 
-      <div class="col-md-9">
-        <div class="row">
-          <div class="col-md-2">
-            <%= image_tag current_collection.image.url(:medium), class: "img-responsive" %>
-            <p><%= current_collection.description %></p>
+      <div class="row">
+        <div class="col-md-3">
+          <%= image_tag current_collection.image.url(:medium), class: "img-responsive" %>
+          <h4>
+            <%= link_to "Add Piece to Collection (#{current_collection.pieces.count} total)", new_users_collection_piece_path(current_user, current_collection) %>
+          </h4>
+        </div>
+
+        <% current_collection.pieces.map do |piece| %>
+          <div class="col-md-6">
+            <%= image_tag piece.image.url(:thumb), class: "img-responsive current-collection-images" %>
           </div>
-          <% current_collection.pieces.map do |piece| %>
-            <div class="col-md-1">
-              <%= image_tag piece.image.url(:thumb), class: "img-responsive current-collection-images" %>
-            </div>
-          <% end %>
-        </div>
+        <% end %>
 
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+          <%= current_collection.description %>
+        </div>
       </div>
-      <h4>
-        <%= link_to "Add Piece to Collection (#{current_collection.pieces.count} total)", new_users_collection_piece_path(current_user, current_collection) %>
-      </h4>
+
     </div>
   </div>
 </div>
