@@ -36,7 +36,7 @@ RSpec.feature "User adds a piece to the collection", type: :feature do
     click_on "Create"
 
     expect(current_path).to eq(dashboard_path)
-    expect(page).to_not have_content("Short Film")
+    expect(page).to have_content("Short Film")
     expect(page).to_not have_content("A little footage")
 
     # expect(page).to have_css(".current-collection-images")

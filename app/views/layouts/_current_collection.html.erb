@@ -23,27 +23,30 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row page-content">
         <div class="col-md-3">
           <%= image_tag current_collection.image.url(:medium), class: "img-responsive" %>
           <h4>
-            <%= link_to "Add Piece to Collection (#{current_collection.pieces.count} total)", new_users_collection_piece_path(current_user, current_collection) %>
+            <%= link_to "Add Piece to Collection", new_users_collection_piece_path(current_user, current_collection) %>
           </h4>
         </div>
 
-        <% current_collection.pieces.map do |piece| %>
-          <div class="col-md-6">
-            <%= image_tag piece.image.url(:thumb), class: "img-responsive current-collection-images" %>
+
+        <div class="col-md-6 three-content">
+        <% current_collection.pieces.limit(8).map do |piece| %>
+          <div class="col-md-3 thumbnail">
+            <%= image_tag piece.image.url(:thumb), class: "img-responsive current-collection-images thumbnail-image" %>
+            <%= piece.name %>
           </div>
         <% end %>
+        </div>
 
-        <div class="col-md-3"></div>
         <div class="col-md-3"></div>
         <div class="col-md-3">
           <%= current_collection.description %>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
 </div>

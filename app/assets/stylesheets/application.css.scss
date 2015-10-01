@@ -354,8 +354,16 @@ a, a:visited {
 
 .thumbnail {
   display: table;
-  width: 200px;
+  min-height: 120px;
+  max-width: 112px;
+  max-height: 120px;
   margin: 2%;
+  text-align: center;
+}
+
+.thumbnail-image {
+  min-height: 60px;
+  max-height: 70px;
 }
 
 /* Dashboard Tabs */
@@ -368,6 +376,7 @@ a, a:visited {
 .g-tabs-item:first-child {
   margin-left: 0;
 }
+
 .g-tabs-item {
   float: left;
   margin: 0 15px -1px;
@@ -375,19 +384,20 @@ a, a:visited {
 
 a.g-tabs-link.active {
   cursor: pointer;
-  color: #333;
+  color: #FFF;
   display: block;
 }
 
+
 a, a:visited {
-  color: #38d;
+  color: #FF0670;
   text-decoration: none;
 }
 
 .g-tabs-link, .g-tabs-link:visited {
   cursor: pointer;
-  color: #333;
-  border-bottom: 1px solid transparent;
+  color: #FFF;
+  border-bottom: 1px solid #FFF;
   display: block;
 }
 
@@ -407,6 +417,10 @@ a, a:visited {
 
 .right {
   float: right
+}
+
+.dash-tabs {
+  text-decoration: dotted;
 }
 
 /* Forms */
@@ -451,9 +465,21 @@ a, a:visited {
 
 }
 
-/* Collections Index */
+/* Collections */
 
 .collections-list {
   border-bottom: 1px solid #0AAAFF;
-  padding-top: 2%;
+}
+
+.three-content {
+  border-right: 1px solid #0AAAFF;
+  border-left: 1px solid #0AAAFF;
+  }
+
+.page-content {
+}
+
+.collections-show {
+  max-width: 200px;
+
 }

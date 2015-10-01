@@ -4,12 +4,9 @@
 
 <div class="container">
   <div class="row collections-list">
-    <h2>
-      Collections:
       <h4>
         <%= link_to "Add A Collection", new_users_collection_path(current_user) %>
       </h4>
-    </h2>
   </div>
 
   <% @collections.map do |collection| %>
@@ -41,10 +38,11 @@
           <br/>
         </div>
 
-        <div class="col-md-3">
-          <% collection.pieces.map do |piece| %>
-            <div class="col-md-6">
-              <%= image_tag piece.image.url(:thumb) %> <br/>
+        <div class="col-md-6 three-content">
+          <% collection.pieces.limit(8).map do |piece| %>
+            <div class="col-md-3 thumbnail">
+              <%= image_tag piece.image.url(:thumb), class: "img-responsive current-collection-images thumbnail-image" %> <br/>
+              <%= piece.name %> <br/>
             </div>
           <% end %>
         </div>
