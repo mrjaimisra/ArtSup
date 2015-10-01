@@ -24,7 +24,7 @@
             <% if current_user.image_url == "" %>
               <%= image_tag current_user.image_url, class: "navbar-avatar ima-rounded" %>
             <% else %>
-              <%= image_tag default_avatar_url, class: "navbar-avatar" %>
+              <%= image_tag current_user.avatar.url(:thumb), class: "navbar-avatar" %>
             <% end %>
             <span class="caret"></span></a>
           <ul class="dropdown-menu">
