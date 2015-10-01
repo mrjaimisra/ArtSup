@@ -10,7 +10,9 @@
       <% @users.map do |user| %>
         <div class="col-md-3 user-stuff">
           <%= image_tag user.avatar.url(:medium), class: "img-circle" %> <br/>
-          <%= link_to user.name, users_collections_path(id: params[:id]) %> <br/>
+          <%= link_to user.name, users_collections_path(user.id) %> <br/>
+          <%= user.email %>
+
           <%= user.email %>
       <% end %>
       </div>
