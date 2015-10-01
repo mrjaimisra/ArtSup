@@ -6,7 +6,7 @@
 
   <h2><%= @user.name %>'s Wishlist:</h2>
   <%= button_to "Delete Wishlist", { action: "destroy", id: @user.id },
-                method: :delete, data: { confirm: "Are you sure?" } %>
+                method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
 
   <div class="row">
     <% @wishlist.each do |item| %>
@@ -26,13 +26,3 @@
     <% end %>
   </div>
 </div>
-
-<!--:title=>"STUNTMAN G - Shoulder, Chest and Hip Mount for GoPro Cameras",-->
-<!--:price=>"39.99",-->
-<!--:image_url=>"http://ecx.images-amazon.com/images/I/41IO-4Pbq%2BL._SL500_SL135_.jpg",-->
-<!--:quantity=>1,-->
-<!--:asin=>"B00XAR64M8",-->
-<!--:registry_id=>"579KNEDD72QR",-->
-<!--:product_group_id=>"gl_camera",-->
-<!--:registry_item_id=>"I25TX5TV56UHJF",-->
-<!--:merchant_id=>"A3EXDMG8FUV8V2"-->
