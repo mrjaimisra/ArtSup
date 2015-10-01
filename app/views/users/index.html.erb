@@ -7,6 +7,7 @@
       <h2>Artists/Supporters</h2>
     </div>
     <div>
+      <div class="row">
       <% @users.map do |user| %>
         <div class="col-md-3 user-stuff">
           <%= image_tag user.avatar.url(:medium), class: "img-circle" %> <br/>
@@ -16,7 +17,7 @@
           <%= user.email %>
       <% end %>
       </div>
+      </div>
     </div>
-
   </div>
 </div>
