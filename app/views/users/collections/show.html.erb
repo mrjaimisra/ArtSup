@@ -28,7 +28,7 @@
           <%= image_tag piece.image.url(:medium), class: "collection-images" %>
           <% if current_user.id == params[:user].to_i %>
             <div class="">
-              <%= link_to "Edit", edit_users_collection_piece_path(collection_id: @collection.id, id: params[:id]), class: "btn btn-default" %>
+              <%= link_to "Edit", edit_users_collection_piece_path(collection_id: piece.collection_id, id: piece.id), class: "btn btn-default" %>
             </div>
           <% else %>
             <%= link_to "Add To Cart", class: "btn btn-default" %>

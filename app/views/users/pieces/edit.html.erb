@@ -10,7 +10,7 @@
     <h3>Edit a Piece in <%= @collection.title %></h3>
     </div>
     <div class="col-md-8">
-    <%= button_to "Remove", { action: "destroy", id: @collection.id },
+    <%= button_to "Remove", { action: "destroy", id: @piece.id },
                                 method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-info butt" %>
                                 </div>
     </div>
@@ -32,7 +32,5 @@
           <%= f.submit "Update", class: "btn btn-primary" %>
         </div>
       <% end %>
-
-    <%= render partial: "layouts/right_sidebar" %>
   </div>
 </div>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   patch "/profile", to: "users#update"
   get "/profile/edit", to: "users#edit"
   get "/profile/show", to: "users#show"
+  get "/logout", to: "users#destroy", as: :logout
   get "/dashboard", to: "dashboard#show"
 
   resources :users, only: [:index]

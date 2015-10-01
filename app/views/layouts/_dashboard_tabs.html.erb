@@ -37,13 +37,6 @@
               <h3><%= link_to "Wish List", new_users_wishlist_path(@user), class: "g-tabs-link" %></h3>
             <% end %>
           </li>
-          <li class="g-tabs-item">
-            <% if params[:controller] == "supporters" %>
-              <h3><%= link_to "Supporters", "#", class: "g-tabs-link", id: "selected" %></h3>
-            <% else %>
-              <h3><%= link_to "Supporters", "#", class: "g-tabs-link" %></h3>
-            <% end %>
-          </li>
         </ul>
         </div>
 

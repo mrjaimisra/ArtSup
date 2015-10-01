@@ -36,8 +36,7 @@ class Users::PiecesController < Users::UsersController
 
   def destroy
     @piece = Piece.find_by(id: params[:id])
-    binding.pry
-    @collection = Collection.find_by(id: params[:collection_id])
+    @collection = Collection.find_by(id: @piece.collection_id)
     @user = User.find_by(id: params[:user])
 
     @piece.destroy

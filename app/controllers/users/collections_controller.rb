@@ -28,7 +28,8 @@ class Users::CollectionsController < Users::UsersController
 
   def update
     @user = User.find_by(id: params[:user])
-    @collection = Collection.find_by(id: params[:id])
+    @piece = Piece.find_by(id: params[:id])
+    @collection = Collection.find_by(id: @piece.collection_id)
     @collection.update_attributes(collection_params)
     if @collection.save
       redirect_to users_collections_path(user: params[:user])
@@ -38,7 +39,9 @@ class Users::CollectionsController < Users::UsersController
   end
 
   def show
-    @collection = Collection.find_by(id: params[:id])
+    @user = User.find_by(id: params[:user])
+    @piece = Piece.find_by(id: params[:id])
+    @collection = Collection.find_by(id: @piece.id)
     @pieces = @collection.pieces
   end
 
