@@ -43,6 +43,12 @@ gem 'aws-sdk', '< 2.0'
 gem 'rails_12factor'
 gem 'faker'
 
+
+group :production do
+  gem "skylight"
+  gem "newrelic_rpm"
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
