@@ -6,14 +6,14 @@
 
   <h2><%= @user.name %>'s Wishlist:</h2>
   <%= button_to "Refresh Wishlist",
-                { action: "update" },
+                {action: "update"},
                 method: :patch,
                 class: "btn btn-default" %>
 
   <%= button_to "Delete Wishlist",
-                { action: "destroy", id: @user.id },
+                {action: "destroy", id: @user.id},
                 method: :delete,
-                data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+                data: {confirm: "Are you sure?"}, class: "btn btn-default" %>
 
   <div class="row">
     <% @wishlist.each do |item| %>
@@ -26,7 +26,22 @@
           Price: $<%= item[:price] %> <br>
           Quantity:<%= item[:quantity] %>
           <span class="right">
-            <%= link_to "Add to Cart", item[:link], class: "btn btn-default" %>
+            <form method="GET" action="http://www.amazon.com/gp/aws/cart/add.html" target="_blank">
+              <input type="hidden" name="AssociateTag" value="art0e2-20"/>
+              <input type="hidden" name="SubscriptionId" value="ENV['AWS_ACCESS_KEY_ID']"/>
+              <input type="hidden" name="ASIN.1" value="<%= item[:asin] %>"/>
+              <br/>
+              <input type="hidden" name="Quantity.1" value="1"/>
+              <br/>
+              <input type="image"
+                     name="add"
+                     value="Buy from Amazon.com"
+                     border="0"
+                     alt="Buy from Amazon.com"
+                     src="http://images.amazon.com/images/G/01/associates/add-to-cart.gif">
+            </form>
+
+
           </span> <br>
         </div>
       </div>
