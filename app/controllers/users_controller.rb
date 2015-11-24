@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:format])
+    @user = User.find_by(id: params[:id])
+    @wishlist = get_wishlist(@user.wishlist_id)
   end
 
   def edit
@@ -29,5 +30,11 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :zipcode, :provider, :token, :uid, :image_url, :wishlist_id, :story, :avatar)
+    end
+
+    def get_wishlist(id)
+      cache_store.fetch "wishlist_#{id}", expires_in: 1.hour do
+        Wishlist.fetch(id)
+      end
     end
 end

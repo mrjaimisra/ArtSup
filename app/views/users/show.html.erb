@@ -3,13 +3,37 @@
 
 <div class="container">
   <div class="row profile">
-    <%= image_tag current_user.avatar.url(:medium), class: "img-circle pull-left", alt: current_user.name %>
-    <h1 class="header"><%= current_user.name %>'s Profile:</h1>
+    <%= image_tag @user.avatar.url(:medium), class: "img-circle pull-left", alt: @user.name %>
+    <h1 class="header"><%= @user.name %>'s Profile:</h1>
 
-    <h3><%= current_user.email %></h3>
+    <h3><%= @user.email %></h3>
 
-    <div>
-      <%= link_to "Edit Profile", profile_edit_path(user: current_user.id), class: "btn btn-info" %>
+
+    <% if @user == current_user %>
+      <div>
+        <%= link_to "Edit Profile", edit_profile_path(current_user), class: "btn btn-info" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-3">
+    <%= render partial: "layouts/right_sidebar" %>
+  </div>
+
+  <div class="col-md-9">
+
+    <div class="dashboard-content story-dashboard ">
+      <h2>Story</h2>
+      <%= current_user.story %>
+      <h4><%= link_to "Edit Information", "#" %></h4>
+    </div>
+
+    <div class="dashboard-content">
+      <h2>Gallery</h2>
+    </div>
+
+    <div class="dashboard-content">
+      <h2>Supporters</h2>
     </div>
   </div>
 
