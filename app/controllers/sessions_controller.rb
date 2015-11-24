@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      redirect_to dashboard_path
+      redirect_to dashboard_path(user.url)
     else
       redirect_to root_path
     end

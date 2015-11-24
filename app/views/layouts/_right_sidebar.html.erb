@@ -1,10 +1,21 @@
 <div class="l-sidebar-right">
   <div class="streamSidebar sc-clearfix">
-    <h3><%= @user.name %>'s Wish List</h3>
+
+    <% if @user == current_user %>
+      <h3>My Wish List</h3>
+    <% else %>
+      <h><%= @user.name %>'s Wish List</h>
+    <% end %>
+
+    <% if @user == current_user && !current_user.wishlist_id %>
+      <h4>Click here to import your Wishlist</h4>
+      <% elsif !@user.wishlist_id %>
+      <h4><%= @user.name %>'s Wishlist is empty</h4>
+    <% end %>
 
     <% if @user.wishlist_id %>
       <div class="row">
-        <% WishlistService.fetch(@user.wishlist_id).each do |item| %>
+        <% @wishlist.each do |item| %>
           <ul>
             <li class="thumbnail">
               <div class="col-md-6">
@@ -12,10 +23,11 @@
               </div>
               <div class="col-md-6">
                 <%= link_to item[:title].first(14), item[:link], target: '_blank' %>
-              <br>
-              Price: $<%= item[:price] %> | Quantity:<%= item[:quantity] %>
-              <br>
-              <br>
+                <br>
+                Price: $<%= item[:price] %> | Quantity:<%= item[:quantity] %>
+                <br>
+                <br>
+
                 <form method="GET" action="http://www.amazon.com/gp/aws/cart/add.html" target="_blank">
                   <input type="hidden" name="AssociateTag" value="art0e2-20"/>
                   <input type="hidden" name="SubscriptionId" value="ENV['AWS_ACCESS_KEY_ID']"/>
@@ -36,9 +48,6 @@
           </ul>
         <% end %>
       </div>
-
-    <% else %>
-      <h2>Click here to import your Wishlist</h2>
     <% end %>
   </div>
 </div>

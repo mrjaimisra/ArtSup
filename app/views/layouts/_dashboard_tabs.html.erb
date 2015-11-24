@@ -14,9 +14,9 @@
 
         <li class="g-tabs-item">
           <% if params[:controller] == "dashboard" %>
-            <h3><%= link_to "Dashboard", dashboard_path, class: "g-tabs-link", id: "selected" %></h3>
+            <h3><%= link_to "Dashboard", dashboard_path(current_user.url), class: "g-tabs-link", id: "selected" %></h3>
           <% else %>
-            <h3><%= link_to "Dashboard", dashboard_path, class: "g-tabs-link" %></h3>
+            <h3><%= link_to "Dashboard", dashboard_path(current_user.url), class: "g-tabs-link" %></h3>
           <% end %>
         </li>
 
@@ -37,7 +37,7 @@
           <br/>
           <%= current_user.email %></h4>
 
-        <h4><%= link_to "Profile", profile_path, class: "dashboard-top-banner" %> </h4>
+        <h4><%= link_to "Profile", profile_path(current_user), class: "dashboard-top-banner" %> </h4>
       </div>
 
       </div>

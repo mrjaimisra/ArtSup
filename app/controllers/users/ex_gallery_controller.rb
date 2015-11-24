@@ -1,4 +1,4 @@
-class Users::CollectionsController < Users::UsersController
+class Users::ExGalleryController < Users::UsersController
   def index
     @collections = Collection.where(user_id: current_user.id)
     @user = User.find_by(id: params[:user])
