@@ -30,6 +30,7 @@ module WishlistService
     dom_items.map do |dom_item|
       data = JSON.parse dom_item[item_selector]
       { title:            document.at_css("#itemImage_#{data['registryItemId']} a")['title'],
+        link:             'http://amazon.com' + document.at_css("#itemName_#{data['registryItemId']}")['href'],
         price:            data["price"], # <-- :D
         image_url:        document.at_css("#itemImage_#{data['registryItemId']} a").at_css('img')['src'],
         quantity:         data["quantity"],
