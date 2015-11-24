@@ -1,5 +1,4 @@
 class Wishlist < OpenStruct
-
   def self.service
     @service ||= WishlistService.new
   end

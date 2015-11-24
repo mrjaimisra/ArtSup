@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
+  # Why is this the current collection?
   def current_collection
     @current_collection ||= current_user.collections.last
   end

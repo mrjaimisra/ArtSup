@@ -5,8 +5,15 @@
 <div class="container">
 
   <h2><%= @user.name %>'s Wishlist:</h2>
-  <%= button_to "Delete Wishlist", { action: "destroy", id: @user.id },
-                method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+  <%= button_to "Refresh Wishlist",
+                { action: "update" },
+                method: :patch,
+                class: "btn btn-default" %>
+
+  <%= button_to "Delete Wishlist",
+                { action: "destroy", id: @user.id },
+                method: :delete,
+                data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
 
   <div class="row">
     <% @wishlist.each do |item| %>
