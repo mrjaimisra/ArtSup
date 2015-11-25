@@ -29,7 +29,6 @@ class Users::GalleriesController < Users::UsersController
   end
 
   def update
-    binding.pry
     @user = User.find_by(url: params[:user])
     @gallery = Gallery.find_by(id: params[:id])
     @gallery.update_attributes(gallery_params)
