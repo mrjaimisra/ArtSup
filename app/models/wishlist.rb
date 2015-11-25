@@ -4,7 +4,7 @@ class Wishlist < OpenStruct
   end
 
   def self.all
-    # self.service.wish_list.map { |item| new(item) }
+    self.service.wish_list.map { |item| new(item) }
   end
 
   def self.find(id)

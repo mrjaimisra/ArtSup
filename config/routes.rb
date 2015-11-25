@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   get "confirm/:asin", to: "confirm#show"
   post "confirm/:asin", to: "confirm#create"
+
+  resources :notifications, only: [:create, :show]
 end

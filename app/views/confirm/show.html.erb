@@ -4,26 +4,29 @@
 
   <div class="row">
 
-    <h3>Thank you for supporting <%= @user.name %> by purchasing the following
-      item on their wishlist: </h3>
 
-    <div class="itemConfirm">
-      <%= @title %>
-      <br/>
-      <%= image_tag @image %>
-      <br/>
-      <%= @price %>
-      <br/>
-      <%= @quantity %>
-      <br/>
-      <%= @asin %>
+    <div class="confirm-item col-md-4">
+      <h3>Thank you for supporting <%= @user.name %> by purchasing the following
+        item on their wishlist: </h3>
+
+      <div class="col-md-6 confirm-item-image">
+        <%= image_tag @image %>
+      </div>
+      <div class="col-md-6 confirm-item-data">
+        <div class="confirm-item-title">
+          <%= @title %>
+        </div>
+        <div class="confirm-item-price">
+          Price: <%= @price %>
+        </div>
+        <div class="confirm-item-asin"></div>
+        Amazon ASIN: <%= @asin %>
+      </div>
     </div>
 
-    <br/>
-
-    <div>
-      <h4>You will be redirected to your Amazon Shopping cart in a new tab.
-        Please use <%= @user.name %>'s delivery address:</h4>
+    <div class="col-md-7">
+      <h3>You will be redirected to your Amazon Shopping cart in a new tab.
+        Please use <%= @user.name %>'s delivery address:</h3>
 
       <h3><%= @user.name %></h3>
 
@@ -32,11 +35,24 @@
       <h3><%= @user.city %>
         <%= @user.state %>
         <%= @user.zip_code %></h3>
-
-      <h4>Once you have finished paying for the item on Amazon click here to redeem your gift!</h4>
-
     </div>
 
+    <div class="col-md-1"></div>
+
+
+    <div class="col-md-12">
+      <div>
+
+        <div class="hrr"></div>
+
+        <h3>Once you have finished paying for the item on Amazon, you can
+          click
+          the button below:</h3>
+
+        <%= link_to "Confirm your supporter gift", notification_path(@user.url) %>
+      </div>
+
+    </div>
   </div>
-  
 </div>
+
