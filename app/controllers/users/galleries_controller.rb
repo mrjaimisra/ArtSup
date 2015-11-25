@@ -40,7 +40,6 @@ class Users::GalleriesController < Users::UsersController
   end
 
   def show
-    binding.pry
     @user = User.find_by(id: params[:user])
     @gallery = @user.gallery
   end
