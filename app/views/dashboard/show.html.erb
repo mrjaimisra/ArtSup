@@ -6,11 +6,11 @@
 
   <div class="row">
 
-    <div class="col-md-3">
+    <div class="col-md-4">
       <%= render partial: "layouts/right_sidebar" %>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-8">
 
       <div class="dashboard-content story-dashboard ">
         <h2>Story</h2>
@@ -39,16 +39,21 @@
       <div class="dashboard-content supporters-dashboard">
         <h2>My Supporters</h2>
         <% current_user.supporters.each do |supporter| %>
-          <%= supporter.name %>
-          <%= supporter.email %>
-        <% end %>
+            <div>
+              <%= image_tag supporter.avatar.url(:thumb), class: "img-circle" %>
+              <br/>
+              <%= link_to supporter.name, profile_path(supporter) %>
+              <br/>
+              <%= supporter.email %>
+            </div>
+          <% end %>
       </div>
 
       <div class="dashboard-content supported-artists-dashboard">
         <h2>Artists I Support</h2>
         <% current_user.supported_artists.each do |supported_artist| %>
           <div>
-            <%= image_tag supported_artist.avatar.url(:thumb) %>
+            <%= image_tag supported_artist.avatar.url(:thumb), class: "img-circle"  %>
             <br/>
             <%= link_to supported_artist.name, profile_path(supported_artist) %>
             <br/>
