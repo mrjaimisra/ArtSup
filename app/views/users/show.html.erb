@@ -49,7 +49,7 @@
 
     <div class="dashboard-content supporters-dashboard col-md-12">
       <h2>My Supporters</h2>
-      <% @user.supporters.each do |supporter| %>
+      <% @user.supporters.uniq.each do |supporter| %>
         <div class="col-md-3">
           <%= image_tag supporter.avatar.url(:thumb), class: "img-circle" %>
           <br/>
@@ -62,7 +62,7 @@
 
     <div class="dashboard-content supported-artists-dashboard col-md-12">
       <h2>Artists I Support</h2>
-      <% @user.supported_artists.each do |supported_artist| %>
+      <% @user.supported_artists.uniq.each do |supported_artist| %>
         <div class="col-md-3">
           <%= image_tag supported_artist.avatar.url(:thumb), class: "img-circle" %>
           <br/>
