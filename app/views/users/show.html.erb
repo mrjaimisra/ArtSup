@@ -4,7 +4,11 @@
 <div class="container">
   <div class="row profile">
     <h2 class="header"><%= @user.name %>'s Profile:</h2>
-    <%= image_tag @user.avatar.url(:thumb), class: "img-circle pull-left", alt: @user.name %>
+
+    <div class="profile-image-container">
+      <%= image_tag @user.avatar.url(:medium), class: "profile-image pull-left", alt: @user.name %>
+    </div>
+
     <h3>Address:</h3>
     <h4><%= @user.street_address %>
       <br>
@@ -30,7 +34,7 @@
     </div>
 
     <div class="dashboard-content">
-        <h2>Picture</h2>
+      <h2>Picture</h2>
       <% if @user.gallery_id %>
         <%= image_tag @gallery.image.url(:medium) %>
         <br/>
@@ -60,7 +64,7 @@
       <h2>Artists I Support</h2>
       <% @user.supported_artists.each do |supported_artist| %>
         <div>
-          <%= image_tag supported_artist.avatar.url(:thumb), class: "img-circle"  %>
+          <%= image_tag supported_artist.avatar.url(:thumb), class: "img-circle" %>
           <br/>
           <%= link_to supported_artist.name, profile_path(supported_artist) %>
           <br/>
