@@ -7,6 +7,7 @@ class NotificationsMailer < ApplicationMailer
     @city = email_params[:city]
     @state = email_params[:state]
     @zip_code = email_params[:zip_code]
+    @email = email_params[:email]
 
     mail(
         to: email_params[:email],
