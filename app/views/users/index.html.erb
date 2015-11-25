@@ -13,7 +13,7 @@
           <div class="col-md-3 user-stuff">
             <%= image_tag user.avatar.url(:medium), class: "img-circle" %>
             <br/>
-            <%= link_to user.name, profile_path(user) %> <br/>
+            <%= link_to user.name, profile_path(user.url) %> <br/>
             <%= user.email %>
           </div>
         <% end %>

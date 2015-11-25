@@ -3,11 +3,13 @@
 
 <div class="container">
   <div class="row profile">
+    <h2 class="header"><%= @user.name %>'s Profile:</h2>
     <%= image_tag @user.avatar.url(:medium), class: "img-circle pull-left", alt: @user.name %>
-    <h1 class="header"><%= @user.name %>'s Profile:</h1>
-
-    <h3><%= @user.email %></h3>
-
+    <h3>Address:</h3>
+    <h4><%= @user.street_address %>
+      <br>
+      <%= @user.city %> <%= @user.state %>  <%= @user.zip_code %></h4>
+    <h4><%= mail_to @user.email, "Email #{@user.name}" %></h4>
 
     <% if @user == current_user %>
       <div>
@@ -24,19 +26,47 @@
 
     <div class="dashboard-content story-dashboard ">
       <h2>Story</h2>
-      <%= current_user.story %>
-      <h4><%= link_to "Edit Information", "#" %></h4>
+      <%= @user.story %>
     </div>
 
     <div class="dashboard-content">
-      <h2>Gallery</h2>
+        <h2>Picture</h2>
+      <% if @user.gallery_id %>
+        <%= image_tag @gallery.image.url(:medium) %>
+        <br/>
+        <h4>Description:</h4> <%= @gallery.description %>
+      <% end %>
     </div>
 
-    <div class="dashboard-content">
-      <h2>Supporters</h2>
+    <div class="dashboard-content gift-dashboard ">
+      <h2>Gift</h2>
+      <%= @user.gift %>
     </div>
-  </div>
 
-  <div class="wish-list">
+    <div class="dashboard-content supporters-dashboard">
+      <h2>My Supporters</h2>
+      <% @user.supporters.each do |supporter| %>
+        <div>
+          <%= image_tag supporter.avatar.url(:thumb) %>
+          <br/>
+          <%= link_to supporter.name, profile_path(supporter) %>
+          <br/>
+          <%= supporter.email %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="dashboard-content supported-artists-dashboard">
+      <h2>Artists I Support</h2>
+      <% @user.supported_artists.each do |supported_artist| %>
+        <div>
+          <%= image_tag supported_artist.avatar.url(:thumb) %>
+          <br/>
+          <%= link_to supported_artist.name, profile_path(supported_artist) %>
+          <br/>
+          <%= supported_artist.email %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

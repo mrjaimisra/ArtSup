@@ -38,15 +38,16 @@ gem 'autoprefixer-rails'
 gem 'omniauth-amazon'
 gem 'figaro'
 gem 'hurley'
-gem "paperclip"
+gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'rails_12factor'
 gem 'faker'
+gem 'responders', '~> 2.0'
 
 
 group :production do
-  gem "skylight"
-  gem "newrelic_rpm"
+  gem 'skylight'
+  gem 'newrelic_rpm'
 end
 
 group :development, :test do

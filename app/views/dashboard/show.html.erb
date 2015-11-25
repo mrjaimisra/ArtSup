@@ -6,8 +6,6 @@
 
   <div class="row">
 
-      <!--<%#= render partial: "layouts/current_collection" %>-->
-
     <div class="col-md-3">
       <%= render partial: "layouts/right_sidebar" %>
     </div>
@@ -17,16 +15,48 @@
       <div class="dashboard-content story-dashboard ">
         <h2>Story</h2>
         <%= current_user.story %>
-        <h4><%= link_to "Edit Information", "#" %></h4>
+        <h4><%= link_to "Edit Information", edit_profile_path(current_user.url) %></h4>
       </div>
 
       <div class="dashboard-content">
-        <h2>Gallery</h2>
+        <h2>Picture</h2>
+        <% if !current_user.gallery_id %>
+          <h3><%= link_to "Upload a picture here!", new_users_gallery_path(current_user.url) %></h3>
+        <% else %>
+          <h4><%= link_to "Edit your picture", edit_users_gallery_path(user: current_user.url, id: @gallery.id) %></h4>
+          <h4>Description:</h4> <%= @gallery.description %>
+          <br/>
+          <%= image_tag @gallery.image.url(:medium) %>
+        <% end %>
       </div>
 
-      <div class="dashboard-content">
-        <h2>Supporters</h2>
+      <div class="dashboard-content gift-dashboard ">
+        <h2>Gift</h2>
+        <%= current_user.gift %>
+        <h4><%= link_to "Edit your gift", edit_profile_path(current_user.url) %></h4>
       </div>
+
+      <div class="dashboard-content supporters-dashboard">
+        <h2>My Supporters</h2>
+        <% current_user.supporters.each do |supporter| %>
+          <%= supporter.name %>
+          <%= supporter.email %>
+        <% end %>
+      </div>
+
+      <div class="dashboard-content supported-artists-dashboard">
+        <h2>Artists I Support</h2>
+        <% current_user.supported_artists.each do |supported_artist| %>
+          <div>
+            <%= image_tag supported_artist.avatar.url(:thumb) %>
+            <br/>
+            <%= link_to supported_artist.name, profile_path(supported_artist) %>
+            <br/>
+            <%= supported_artist.email %>
+          </div>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>

@@ -10,6 +10,10 @@
         <div class="col-md-9"><h1>Wishlist</h1>
       <% end %>
 
+      <% if params[:controller] == "users/galleries" %>
+        <div class="col-md-9"><h1>Wishlist</h1>
+      <% end %>
+
       <ul class="g-tabs g-tabs-large">
 
         <li class="g-tabs-item">
@@ -24,25 +28,50 @@
           <% if current_user.wishlist_id %>
             <h3><%= link_to "Wish List", users_wishlist_path(id: current_user.wishlist_id, user: current_user), class: "g-tabs-link", id: "selected" %></h3>
           <% else %>
-            <h3><%= link_to "Wish List", new_users_wishlist_path(current_user), class: "g-tabs-link" %></h3>
+            <h3><%= link_to "Create Wish List", new_users_wishlist_path(current_user), class: "g-tabs-link" %></h3>
           <% end %>
         </li>
 
+        <li class="g-tabs-item">
+          <% if current_user.gallery_id %>
+            <h3><%= link_to "Picture", edit_users_gallery_path(id: current_user.gallery_id, user: current_user), class: "g-tabs-link", id: "selected" %></h3>
+          <% else %>
+            <h3><%= link_to "Add Picture", new_users_gallery_path(current_user), class: "g-tabs-link" %></h3>
+          <% end %>
+        </li>
       </ul>
 
       </div>
 
       <div class="col-md-3">
-        <h4><%= current_user.name %>
+        <% if !current_user.street_address ||
+            !current_user.city ||
+            !current_user.state %>
+          <h4><%= link_to "Click here to add address information to your profile", edit_profile_path(current_user.url), id: "incompleteAddress" %></h4>
+          <%= current_user.name %>
           <br/>
-          <%= current_user.email %></h4>
+          <%= current_user.email %>
+          <br/>
+        <% else %>
+          <h4><%= link_to "View Profile", profile_path(current_user.url), class: "dashboard-top-banner" %></h4>
 
-        <h4><%= link_to "Profile", profile_path(current_user), class: "dashboard-top-banner" %> </h4>
+          <h4>
+            <%= current_user.name %>
+            <br/>
+            <%= current_user.email %>
+            <br/>
+            <%= current_user.street_address %>
+            <br/>
+            <%= current_user.city %>,
+            <%= current_user.state %>  <%= current_user.zip_code %>
+            <br/>
+          </h4>
+        <% end %>
       </div>
 
       </div>
-      </div>
-
     </div>
+
   </div>
+</div>
 </div>

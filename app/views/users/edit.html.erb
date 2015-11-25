@@ -10,6 +10,7 @@
                    html: { multipart: true } do |f| %>
         ​
         <div class="form-group col-md-9">
+          <h3>Personal Information</h3>
           <%= f.label :name %>
           <%= f.text_field :name, class: "form-control" %>
           <br/>
@@ -18,6 +19,30 @@
           <br/>
           <%= f.label :image %>
           <%= f.file_field :image %>
+          <br/>
+          <h3>Address Information</h3>
+          <%= f.label :street_address %>
+          <%= f.text_field :street_address, class: "form-control" %>
+          <br/>
+          <%= f.label :city %>
+          <%= f.text_field :city, class: "form-control" %>
+          <br/>
+          <%= f.label :state %>
+          <%= f.text_field :state, class: "form-control" %>
+          <br/>
+          <%= f.label :zip_code %>
+          <%= f.text_field :zip_code, class: "form-control" %>
+          <br/>
+          <h3>Artist Information</h3>
+          <%= f.label :story %>
+          <p>Give us a short description of who you are, what you do, why you create art,
+          and what you hope to do with your art in the future. This section will appear
+          on your public profile:</p>
+          <%= f.text_area :story, class: "form-control" %>
+          <br/>
+          <%= f.label :gift %>
+          <p>Tell your supporters what you will gift them for their contribution:</p>
+          <%= f.text_area :gift, class: "form-control" %>
           <br/>
           <%= f.submit "Edit", class: "btn btn-primary" %>
         </div>

@@ -136,6 +136,9 @@ RSpec.configure do |config|
                                        :token => "amazon_token",
                                        :uid => "001",
                                    },
+                                   extra: {
+                                       :postal_code => "20850"
+                                   },
                                })
   end
 end
