@@ -8,24 +8,29 @@
     <% end %>
 
     <% if @user == current_user && !current_user.wishlist_id %>
-      <h4>Click here to import your Wishlist</h4>
-      <% elsif !@user.wishlist_id %>
+      <h4><%= link_to "Click here to import your Wishlist", new_users_wishlist_path(current_user) %></h4>
+    <% elsif !@user.wishlist_id %>
       <h4><%= @user.name %>'s Wishlist is empty</h4>
     <% end %>
 
     <% if @user.wishlist_id %>
       <div class="row">
-        <% @wishlist.each do |item| %>
-          <ul>
-            <li class="thumbnail">
-              <div class="col-md-6">
+        <ul class="wishlistItems">
+          <% @wishlist.each do |item| %>
+            <li class="thumbnail wishlistItem">
+              <div class="col-md-6 wishlistItemImage">
                 <%= link_to (image_tag item[:image_url]), item[:link], class: "" %>
               </div>
-              <div class="col-md-6">
-                <%= link_to item[:title].first(14), item[:link], target: '_blank' %>
-                <br>
-                Price: $<%= item[:price] %> | Quantity:<%= item[:quantity] %>
-                <br>
+              <div class="col-md-6 wishlistItemData">
+                <div class="wishlistItemTitle">
+                  <%= link_to item[:title].first(50), item[:link], target: '_blank' %>
+                </div>
+                <div class="wishlistItemPrice">
+                  Price: $<%= item[:price] %>
+                </div>
+                <div class="wishlistItemQuantity">
+                  Quantity: <%= item[:quantity] %>
+                </div>
                 <br>
 
                 <form method="GET" action="http://www.amazon.com/gp/aws/cart/add.html" target="_blank">
@@ -40,13 +45,15 @@
                          value="Buy from Amazon.com"
                          border="0"
                          alt="Buy from Amazon.com"
-                         src="http://images.amazon.com/images/G/01/associates/add-to-cart.gif">
+                         src="http://images.amazon.com/images/G/01/associates/add-to-cart.gif"
+                         id="amazonButton"
+                         data-asin="<%= item[:asin] %>">
                 </form>
               </div>
             </li>
             <br>
-          </ul>
-        <% end %>
+          <% end %>
+        </ul>
       </div>
     <% end %>
   </div>

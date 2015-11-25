@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124220801) do
+ActiveRecord::Schema.define(version: 20151125190346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists_to_supporters", force: :cascade do |t|
+    t.integer "artist_id"
+    t.integer "supporter_id"
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -33,6 +49,12 @@ ActiveRecord::Schema.define(version: 20151124220801) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "url"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip_code"
+    t.integer  "gallery_id"
+    t.string   "gift"
   end
 
 end

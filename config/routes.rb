@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   get "/auth/amazon/callback", to: "sessions#create"
 
-  get "/profile/:id", to: "users#show", as: :profile
-  patch "/profile/:id", to: "users#update"
-  get "/profile/:id/edit", to: "users#edit", as: :edit_profile
+  get "/profile/:url", to: "users#show", as: :profile
+  patch "/profile/:url", to: "users#update"
+  get "/profile/:url/edit", to: "users#edit", as: :edit_profile
 
   get "/logout", to: "users#destroy", as: :logout
 
@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index]
   namespace :users, path: ":user" do
     resources :wishlists
+    resources :galleries
   end
+
+  get "confirm/:asin", to: "confirm#show"
+  post "confirm/:asin", to: "confirm#create"
 end
