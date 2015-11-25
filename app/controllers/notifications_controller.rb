@@ -9,6 +9,7 @@ class NotificationsController < ApplicationController
 
     ArtistToSupporter.create(artist_id: @user.id, supporter_id: current_user.id)
     redirect_to dashboard_path(current_user.url), notice: 'Email sent.'
+    flash[:message] = "Email sent."
   end
 
   private

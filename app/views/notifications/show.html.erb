@@ -25,7 +25,7 @@
 
         <div class="form-group">
           <%= label_tag :street_address %>
-          <%= text_field_tag :street_name, "", class: "form-control", value: current_user.street_address %>
+          <%= text_field_tag :street_address, "", class: "form-control", value: current_user.street_address %>
         </div>
 
         <div class="form-group">
@@ -54,23 +54,8 @@
           </div>
 
           <div class="form-group">
-            <%= label_tag :street_address %>
-            <%= text_field_tag :street_address, "", class: "form-control", value: @user.street_address %>
-          </div>
-
-          <div class="form-group">
-            <%= label_tag :city %>
-            <%= text_field_tag :city, "", class: "form-control", value: @user.city %>
-          </div>
-
-          <div class="form-group">
-            <%= label_tag :state %>
-            <%= text_field_tag :state, "", class: "form-control", value: @user.state %>
-          </div>
-
-          <div class="form-group">
-            <%= label_tag :zip_code %>
-            <%= text_field_tag :zip_code, "", class: "form-control", value: @user.zip_code %>
+            <h4>Supporter Gift:</h4>
+            <p><%= @user.gift %></p>
           </div>
 
         </div>

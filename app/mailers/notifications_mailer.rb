@@ -1,6 +1,5 @@
 class NotificationsMailer < ApplicationMailer
   def contact(email_params)
-    binding.pry
     @message = email_params[:message]
     @artist = email_params[:artist]
     @name = email_params[:name]
