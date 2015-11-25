@@ -8,7 +8,7 @@ require_relative '../../app/services/wishlist_service'
 # end
 
 
-RSpec.feature "User can view his or her own wishlist", type: :feature do
+RSpec.feature "User can create a new wishlist", type: :feature do
   let!(:user) { User.find_or_create_from_auth_hash(login) }
 
   before do
@@ -28,5 +28,16 @@ RSpec.feature "User can view his or her own wishlist", type: :feature do
     click_link "Wish List"
 
     expect(current_path).to eq(new_users_wishlist_path(user))
+
+    fill_in "Wishlist url", with: "https://amzn.com/w/579KNEDD72QR"
+
+    VCR.use_cassette "user_creates_wishlist_spec_wishlist" do
+      click_on "Submit"
+    end
+
+    expect(current_path).to eq(users_wishlist_path(user: user.id,
+                                                   id: current_path.split('/').last))
+
+    expect(page).to have_content("#{user.name}'s Wishlist")
   end
 end
