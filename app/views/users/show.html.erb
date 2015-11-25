@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row profile">
     <h2 class="header"><%= @user.name %>'s Profile:</h2>
-    <%= image_tag @user.avatar.url(:medium), class: "img-circle pull-left", alt: @user.name %>
+    <%= image_tag @user.avatar.url(:thumb), class: "img-circle pull-left", alt: @user.name %>
     <h3>Address:</h3>
     <h4><%= @user.street_address %>
       <br>
