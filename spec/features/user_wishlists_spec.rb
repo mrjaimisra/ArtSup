@@ -9,7 +9,7 @@ require_relative '../../app/services/wishlist_service'
 
 
 RSpec.feature "User can view his or her own wishlist", type: :feature do
-  let!(:user) { User.create(name: "Jai", email: "misrajai01@gmail.com") }
+  let!(:user) { User.find_or_create_from_auth_hash(login) }
 
   before do
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:amazon]
@@ -19,9 +19,12 @@ RSpec.feature "User can view his or her own wishlist", type: :feature do
     login
 
     visit root_path
-    click_link "Login"
 
-    expect(current_path).to eq(dashboard_path)
+    VCR.use_cassette "user_wishlist_spec_wishlist" do
+      click_link "Login with Amazon"
+    end
+
+    expect(current_path).to eq(dashboard_path(user.url))
     click_link "Wish List"
 
     expect(current_path).to eq(new_users_wishlist_path(user))
