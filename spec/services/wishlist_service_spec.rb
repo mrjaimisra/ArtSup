@@ -10,26 +10,27 @@ RSpec.describe 'WishlistService' do
   it 'parses my example wishlist' do
     VCR.use_cassette "artsup_wishlist" do
       items = WishlistService.fetch("579KNEDD72QR")
-      expect(items[0]).to eq title:            "GoPro 3-Way Grip, Arm, Tripod",
-                             price:            "63.53",
-                             image_url:        "http://ecx.images-amazon.com/images/I/41AjJBDdt4L._SL500_SL135_.jpg",
-                             quantity:         1,
-                             asin:             "B00KCX8H6E",
-                             registry_id:      "579KNEDD72QR",
-                             product_group_id: "gl_camera",
-                             registry_item_id: "I2HR6TWNIJ878Q",
-                             merchant_id:      "ATVPDKIKX0DER"
+      expect(items[0]).to eq :title=>"Combat Sports Muay Thai Heavy Bag (100-Pound",
+                             :link=>"http://amazon.com/dp/B006K3YL2Y?_encoding=UTF8&colid=579KNEDD72QR&coliid=I4V49W9E669Y7",
+                             :price=>"149.99",
+                             :image_url=>"http://ecx.images-amazon.com/images/I/31ot8BnISpL._SL500_SL135_.jpg",
+                             :quantity=>1,
+                             :asin=>"B006K3YL2Y",
+                             :registry_id=>"579KNEDD72QR",
+                             :product_group_id=>"gl_sports",
+                             :registry_item_id=>"I4V49W9E669Y7",
+                             :merchant_id=>"AKTIG9H3FIG6W"
 
-
-      expect(items[1]).to eq title:            "Oumers Surfing Mouth Mount Water Sports, Accessories for Parachuting Swimming Rowing Surfing Skiing Climbing Running Diving Sports, For GoPro Hero HD, Hero 4 Silver Black, Hero 3+, Hero 3, Hero 2, Hero 1, GoPro Camera Accessories",
-                             price:            "14.99",
-                             image_url:        "http://ecx.images-amazon.com/images/I/51C0U9o8RHL._SL500_SL135_.jpg",
-                             quantity:         1,
-                             asin:             "B00ZTT4MFG",
-                             registry_id:      "579KNEDD72QR",
-                             product_group_id: "gl_camera",
-                             registry_item_id: "I1WPVCCEDG5HN5",
-                             merchant_id:      "A2EG1XSWJSILPK"
+      expect(items[1]).to eq :title=>"GoPro 3-Way Grip, Arm, Tripod",
+                             :link=>"http://amazon.com/dp/B00KCX8H6E?_encoding=UTF8&colid=579KNEDD72QR&coliid=I2HR6TWNIJ878Q&psc=1",
+                             :price=>"59.98",
+                             :image_url=>"http://ecx.images-amazon.com/images/I/41AjJBDdt4L._SL500_SL135_.jpg",
+                             :quantity=>1,
+                             :asin=>"B00KCX8H6E",
+                             :registry_id=>"579KNEDD72QR",
+                             :product_group_id=>"gl_camera",
+                             :registry_item_id=>"I2HR6TWNIJ878Q",
+                             :merchant_id=>"ATVPDKIKX0DER"
 
       expect(items.length).to eq 5
     end

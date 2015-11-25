@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
   before_validation :generate_url
 
   def generate_url
-    self.url = name.parameterize
+    if name
+      self.url = name.parameterize
+    else
+      self.url = "hello"
+    end
   end
 end

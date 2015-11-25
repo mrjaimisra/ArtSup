@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :zipcode, :provider, :token, :uid, :image_url, :wishlist_id, :story, :avatar)
+      params.require(:user).permit(:name, :email, :zipcode, :provider, :token, :urls, :uid, :image_url, :wishlist_id, :story, :avatar)
     end
 
     def get_wishlist(id)
