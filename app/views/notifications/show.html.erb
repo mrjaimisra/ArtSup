@@ -4,32 +4,97 @@
 
   <div class="row">
 
-  </div>
-  <div class="col-md-6">
-    <%= form_tag "/notifications" do %>
-      <div class="form-group">
-        <%= label_tag :email %>
-        <%= text_field_tag :email, "", class: "form-control", value: current_user.email %>
-      </div>
-      <div class="form-group">
-        <%= label_tag :name %>
-        <%= text_field_tag :name, "", class: "form-control", value: current_user.name %>
-      </div>
-      <div class="form-group">
-        <%= label_tag :artist %>
-        <%= text_field_tag :artist, "", class: "form-control", value: @user.name %>
-      </div>
-      <div class="form-group">
-        <%= label_tag :message %>
-        <%= text_area_tag :message, "", class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= submit_tag "Send Email", class: "btn btn-success form-control" %>
-      </div>
-    <% end %>
-  </div>
-  <div class="col-md-3">
+    <h2>Please confirm the following information:</h2>
 
   </div>
-</div>
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <%= form_tag "/notifications" do %>
+
+        <h4>My Information</h4>
+
+        <div class="form-group">
+          <%= label_tag :email %>
+          <%= text_field_tag :email, "", class: "form-control", value: current_user.email %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :name %>
+          <%= text_field_tag :name, "", class: "form-control", value: current_user.name %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :street_address %>
+          <%= text_field_tag :street_name, "", class: "form-control", value: current_user.street_address %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :city %>
+          <%= text_field_tag :city, "", class: "form-control", value: current_user.city %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :state %>
+          <%= text_field_tag :state, "", class: "form-control", value: current_user.state %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :zip_code %>
+          <%= text_field_tag :zip_code, "", class: "form-control", value: current_user.zip_code %>
+        </div>
+
+        </div>
+
+        <div class="col-md-4">
+          <h4>Artist Information</h4>
+
+          <div class="form-group">
+            <%= label_tag :artist %>
+            <%= text_field_tag :artist, "", class: "form-control", value: @user.name %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :street_address %>
+            <%= text_field_tag :street_address, "", class: "form-control", value: @user.street_address %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :city %>
+            <%= text_field_tag :city, "", class: "form-control", value: @user.city %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :state %>
+            <%= text_field_tag :state, "", class: "form-control", value: @user.state %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :zip_code %>
+            <%= text_field_tag :zip_code, "", class: "form-control", value: @user.zip_code %>
+          </div>
+
+        </div>
+
+        <div class="col-md-4">
+          <h4>Write a personal message to <%= @user.name %>:</h4>
+
+          <div class="form-group">
+            <%= label_tag :message %>
+            <%= text_area_tag :message, "", class: "form-control" %>
+          </div>
+          <h5> When you click "Send Email", <%= @user.name %> will be notified
+          of your purchase.
+         Once <%= @user.name %> receives the wishlist item, your gift will
+          be mailed!</h5>
+        <div class="form-group">
+          <%= submit_tag "Send Email", class: "btn btn-success form-control" %>
+        </div>
+        </div>
+        </div>
+      <% end %>
+      </div>
+      <div class="col-md-3">
+
+      </div>
+      </div>
 

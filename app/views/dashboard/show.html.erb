@@ -19,7 +19,7 @@
       </div>
 
       <div class="dashboard-content">
-        <h2>Picture</h2>
+        <h2>Current Work:</h2>
         <% if !current_user.gallery_id %>
           <h3><%= link_to "Upload a picture here!", new_users_gallery_path(current_user.url) %></h3>
         <% else %>

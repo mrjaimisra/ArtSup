@@ -14,6 +14,6 @@ class NotificationsController < ApplicationController
   private
 
   def email_params
-    params.permit(:email, :name, :message, :artist)
+    params.permit(:email, :name, :message, :artist, :street_name, :city, :state, :zip_code)
   end
 end
