@@ -55,5 +55,9 @@ RSpec.feature "User confirms order spec", type: :feature do
     click_on "Confirm your supporter gift"
 
     expect(current_path).to eq(notification_path(user.url))
+
+    click_on "Send Email"
+
+    expect(current_path).to eq(dashboard_path(user.url))
   end
 end
