@@ -39,18 +39,6 @@ class Users::GalleriesController < Users::UsersController
     end
   end
 
-  def show
-    @user = User.find_by(id: params[:user])
-    @gallery = @user.gallery
-  end
-
-  def destroy
-    @gallery = Gallery.find_by(id: params[:id])
-    @gallery.destroy
-
-    redirect_to users_gallery_path(user: params[:user])
-  end
-
   private
 
     def gallery_params

@@ -1,8 +1,4 @@
 class Wishlist < OpenStruct
-  def self.service
-    @service ||= WishlistService.new
-  end
-
   def self.fetch(wishlist_id)
     WishlistService.fetch(wishlist_id)
   end

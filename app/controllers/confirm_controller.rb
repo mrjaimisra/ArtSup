@@ -12,10 +12,5 @@ class ConfirmController < ApplicationController
   end
 
   def create
-    @user = User.find_by(url: params["url"])
-    @title = params["title"]
-    @price = params["price"]
-    @quantity = params["quantity"]
-    @image = params["image"]
   end
 end
