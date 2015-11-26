@@ -1,12 +1,5 @@
 require 'rails_helper'
 require_relative '../../app/services/wishlist_service'
-# require 'vcr'
-
-# VCR.configure do |config|
-#   config.cassette_library_dir = "fixtures/vcr_cassettes"
-#   config.hook_into :webmock
-# end
-
 
 RSpec.feature "User can create and delete a new wishlist", type: :feature do
   let!(:user) { User.find_or_create_from_auth_hash(login) }

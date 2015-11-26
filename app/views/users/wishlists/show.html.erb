@@ -24,25 +24,7 @@
         <div class="wish-list-items-content">
           <%= link_to item[:title].first(34), item[:link] %> <br>
           Price: $<%= item[:price] %> <br>
-          Quantity:<%= item[:quantity] %>
-          <span class="right">
-            <form method="GET" action="http://www.amazon.com/gp/aws/cart/add.html" target="_blank">
-              <input type="hidden" name="AssociateTag" value="art0e2-20"/>
-              <input type="hidden" name="SubscriptionId" value="ENV['AWS_ACCESS_KEY_ID']"/>
-              <input type="hidden" name="ASIN.1" value="<%= item[:asin] %>"/>
-              <br/>
-              <input type="hidden" name="Quantity.1" value="1"/>
-              <br/>
-              <input type="image"
-                     name="add"
-                     value="Buy from Amazon.com"
-                     border="0"
-                     alt="Buy from Amazon.com"
-                     src="http://images.amazon.com/images/G/01/associates/add-to-cart.gif">
-            </form>
-
-
-          </span> <br>
+          <br>
         </div>
       </div>
     <% end %>

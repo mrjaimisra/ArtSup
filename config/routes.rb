@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   patch "/profile/:url", to: "users#update"
   get "/profile/:url/edit", to: "users#edit", as: :edit_profile
 
-  get "/logout", to: "users#destroy", as: :logout
+  get "/logout", to: "sessions#destroy", as: :logout
 
   get "/dashboard/:id", to: "dashboard#show", as: :dashboard
 

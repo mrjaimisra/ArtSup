@@ -12,7 +12,7 @@ RSpec.describe 'WishlistService' do
       items = WishlistService.fetch("579KNEDD72QR")
       expect(items[0]).to eq :title=>"Combat Sports Muay Thai Heavy Bag (100-Pound",
                              :link=>"http://amazon.com/dp/B006K3YL2Y?_encoding=UTF8&colid=579KNEDD72QR&coliid=I4V49W9E669Y7",
-                             :price=>"149.99",
+                             :price=>"99.99",
                              :image_url=>"http://ecx.images-amazon.com/images/I/31ot8BnISpL._SL500_SL135_.jpg",
                              :quantity=>1,
                              :asin=>"B006K3YL2Y",
