@@ -19,7 +19,7 @@
           <% @wishlist.each do |item| %>
             <li class="thumbnail wishlistItem">
               <div class="col-md-6 wishlistItemImage">
-                <%= link_to (image_tag item[:image_url]), item[:link], class: "" %>
+                <%= link_to (image_tag item[:image_url]), item[:link], target: '_blank' %>
               </div>
               <div class="col-md-6 wishlistItemData">
                 <div class="wishlistItemTitle">

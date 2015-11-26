@@ -36,7 +36,7 @@
     <div class="dashboard-content">
       <h2>Current Work:</h2>
       <% if @user.gallery_id %>
-        <%= image_tag @gallery.image.url(:medium) %>
+        <%= image_tag @gallery.image.url(:thumb) %>
         <br/>
         <h4>Description:</h4> <%= @gallery.description %>
       <% end %>
