@@ -31,6 +31,7 @@ and a breakdown of the cost of making a piece in materials and time.
 + Front end design and Bootstrap
 + Rails and RESTful applications
 + Using JQuery to manipulate the DOM
++ Implementing basic email notifications
 
 ### Tools
 
