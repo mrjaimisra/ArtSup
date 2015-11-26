@@ -8,8 +8,8 @@
 
   </div>
   <div class="col-md-12">
-    <div class="col-md-4">
-      <%= form_tag "/notifications" do %>
+    <%= form_tag "/notifications" do %>
+      <div class="col-md-4">
 
         <h4>My Information</h4>
 
@@ -43,43 +43,45 @@
           <%= text_field_tag :zip_code, "", class: "form-control", value: current_user.zip_code %>
         </div>
 
-        </div>
+      </div>
 
-        <div class="col-md-4">
-          <h4>Artist Information</h4>
+      <div class="col-md-4">
+        <h4>Artist Information</h4>
 
-          <div class="form-group">
-            <%= label_tag :artist %>
-            <%= text_field_tag :artist, "", class: "form-control", value: @user.name %>
-          </div>
-
-          <div class="form-group">
-            <h4>Supporter Gift:</h4>
-            <p><%= @user.gift %></p>
-          </div>
-
-        </div>
-
-        <div class="col-md-4">
-          <h4>Write a personal message to <%= @user.name %>:</h4>
-
-          <div class="form-group">
-            <%= label_tag :message %>
-            <%= text_area_tag :message, "", class: "form-control" %>
-          </div>
-          <h5> When you click "Send Email", <%= @user.name %> will be notified
-          of your purchase.
-         Once <%= @user.name %> receives the wishlist item, your gift will
-          be mailed!</h5>
         <div class="form-group">
-          <%= submit_tag "Send Email", class: "btn btn-success form-control" %>
+          <%= label_tag :artist %>
+          <%= text_field_tag :artist, "", class: "form-control", value: @user.name %>
         </div>
+
+        <div class="form-group">
+          <h4>Supporter Gift:</h4>
+
+          <p><%= @user.gift %></p>
         </div>
-        </div>
-      <% end %>
-      </div>
-      <div class="col-md-3">
 
       </div>
+
+      <div class="col-md-4">
+        <h4>Write a personal message to <%= @user.name %>:</h4>
+
+        <div class="form-group">
+          <%= label_tag :message %>
+          <%= text_area_tag :message, "", class: "form-control" %>
+        </div>
+        <h5> When you click "Send Email", <%= @user.name %> will be notified
+          of your purchase.
+          Once <%= @user.name %> receives the wishlist item, your gift will
+          be mailed!</h5>
+
+        <div class="form-group">
+          <%= submit_tag "Send Email",
+                         class: "btn btn-success form-control",
+                         id: "send-email" %>
+        </div>
       </div>
+      </div>
+    <% end %>
+    </div>
+
+<div class="col-md-3"></div>
 
