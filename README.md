@@ -26,7 +26,7 @@ and a breakdown of the cost of making a piece in materials and time.
 ### Areas of Focus
 
 + Consuming and Building APIs with JSON
-+ Working with OAuth, Authorization, and role-based permissions 
++ Working with OAuth, Authorization, and role-based permissions
 + Deploying to Heroku in production
 + Front end design and Bootstrap
 + Rails and RESTful applications
@@ -37,6 +37,4 @@ and a breakdown of the cost of making a piece in materials and time.
 
   - [waffle](https://waffle.io/mrjaimisra/ArtSup)
   - [travis]  (https://travis-ci.org/mrjaimisra/ArtSup)
-  - simple cov
-  - ****Skylight****
-  
+  - Simplecov

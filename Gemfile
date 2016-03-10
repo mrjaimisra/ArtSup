@@ -44,7 +44,6 @@ gem 'rails_12factor'
 gem 'faker'
 gem 'responders', '~> 2.0'
 
-
 group :production do
   gem 'skylight'
   gem 'newrelic_rpm'
